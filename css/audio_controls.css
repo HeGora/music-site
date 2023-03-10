@@ -1,0 +1,187 @@
+.active
+{
+
+}
+
+.inactive
+{
+	color: #afafaf;
+}
+
+.audio-list
+{
+	background-color: #121212;
+	font-size: 20px;
+}
+
+.audio
+{
+	color: #ffffff;
+	user-drag: none;
+	user-select: none;
+	vertical-align: center;
+	margin-bottom: 5px;
+}
+
+
+.index
+{
+	display:inline-block;
+}
+
+.play-btn
+{
+	display: inline-block;
+}
+
+.audio-title
+{
+	display:inline-block;
+}
+
+.audio-album
+{
+	display:inline-block;
+}
+
+.download
+{
+	display:inline-block;
+}
+
+#main-audio-controls
+{
+	color: #ffffff;
+	background-color: #000000;
+	height: 8%;
+	width: 100%;
+	position: fixed;
+	top: 92%;
+	z-index: 99;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#main-audio-controls .left
+{
+	display:inline-block;	
+	position: relative;
+}
+
+.play-mode-btn
+{
+	display:inline-block;
+}
+
+#main-audio-controls .mid 
+{
+	display:inline-block;
+	position: relative;
+}
+
+.btns
+{
+	text-align: center;
+}
+
+.prev-btn
+{
+	display:inline-block;
+	margin-right: 10px;
+}
+
+.next-btn
+{
+	display:inline-block;
+	margin-left: 10px;
+}
+
+.progress-sound-wrapper
+{
+	text-align: center;
+}
+
+.audio-track
+{
+	position: relative;
+	width: 150px;
+	height: 4px;
+	background-color: #dddddd;
+	margin: 20px 8px;
+	cursor: pointer;
+	-webkit-user-drag: none;
+	display: inline-block;
+}
+
+.audio-progress
+{
+	width: 0;
+	height: 4px;
+	background-color: #474747;
+	-webkit-user-drag: none;
+	user-drag: none;
+}
+
+.sound
+{
+	display: inline-block;
+}
+
+.sound .icon
+{
+	display: inline-block;
+}
+
+.soundbar
+{
+	position: relative;
+	width: 100px;
+	height: 4px;
+	background-color: #dddddd;
+	margin: 20px 8px;
+	cursor: pointer;
+	-webkit-user-drag: none;
+	user-drag: none;
+	display: inline-block;
+}
+
+.volume
+{
+	width: 0;
+	height: 4px;
+	background-color: #474747;
+	-webkit-user-drag: none;
+	user-drag: none;
+}
+
+.bar-tip
+{
+	visibility: hidden;
+	width: auto;
+	font-size: 12px;
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+	bottom: 125%;
+}
+
+.audio-track .bar-tip
+{
+	visibility: hidden;
+	width: auto;
+	font-size: 12px;
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+	bottom: 125%;
+}
+
+.audio-track:hover .bar-tip
+{
+	visibility: visible;
+}
+
+.soundbar:hover .bar-tip
+{
+	visibility: visible;
+}
