@@ -16,38 +16,77 @@
 
 .audio
 {
+	display: grid;
+	grid-template-columns: 16px 32px 12fr 9fr 1fr;
+	gap: 5px;
 	color: #ffffff;
 	user-drag: none;
 	user-select: none;
-	vertical-align: center;
 	margin-bottom: 5px;
 }
 
 
-.index
+.index-btn
 {
-	display:inline-block;
-}
-
-.play-btn
-{
-	display: inline-block;
+	display: flex;
+	align-items: center;
 }
 
 .audio-title
 {
-	display:inline-block;
+	display:flex;
+	flex-direction: column;
 }
 
 .audio-album
 {
-	display:inline-block;
+	display:flex;
+	align-items: center;
 }
 
-.download
+.more-dur
 {
-	display:inline-block;
+	display:flex;
+	align-items: center;
 }
+
+.header-info
+{
+	color: #ffffff;
+}
+
+.table-header
+{
+	display: grid;
+	grid-template-columns: 53px 12fr 9fr 1fr;
+	gap: 5px;
+	color: #ffffff;
+}
+
+.th-num
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-title
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-album
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-sort
+{
+	display:flex;
+	align-items: center;
+}
+
 
 #main-audio-controls
 {
