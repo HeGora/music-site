@@ -27,7 +27,15 @@
 <?php } ?>
 
 <?php 
-	function audioList($audios){
+	function audioList($playlistId){
+		$db = new PDO('mysql:host=localhost;dbname=mysite_db','root');
+		$audioIdsQ = $db->prepare("select audio_id from audio_in_playlist where playlist_id = ?");
+		$audioIds = $audioIdsQ->execute($playlistId);
+		$playlistInfoQ = $db->prepare("select name from playlists where playlist_id = ?");
+		$playlistInfo = $playlistInfoQ->execute($playlistId);
+
+
+
 		?>
 		<div class = "playlist">
 			<div class = "list-header">
