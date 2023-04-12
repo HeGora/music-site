@@ -5,7 +5,7 @@
 
 		$GLOBALS['audioNum']++;
 ?>
-		<div class = "audio" data-index = <?= $GLOBALS['audioNum'] ?> data-url= "<?= $audio['audio_id'] ?>.mp3">
+		<div class = "audio" data-index = <?= $GLOBALS['audioNum'] ?> data-url= "<?= $audio['id'] ?>.mp3">
 			<div class = "index-btn">
 				<div class = "index"><?= $GLOBALS['audioNum'] ?></div>
 				<div class = "play-btn" style = "display: none">
@@ -17,7 +17,7 @@
 				<div class = "audio-name"><?= $audio['name'] ?></div>
 				<div class = "audio-artist"><?= $audio['artist'] ?></div>
 			</div>
-			<div class = "audio-album"><?= $audio['album']  ?></div>
+			<div class = "audio-album"></div>
 			<div class = "more-dur">
 				<div class = "duration"></div>
 				<div class = "more-btn"><i class = "fa-light fa-arrow-down-to-line"></i></div>
@@ -27,12 +27,15 @@
 <?php } ?>
 
 <?php 
-	function audioList($playlistId){
-		$db = new PDO('mysql:host=localhost;dbname=mysite_db','root');
-		$audioIdsQ = $db->prepare("select audio_id from audio_in_playlist where playlist_id = ?");
-		$audioIds = $audioIdsQ->execute($playlistId);
-		$playlistInfoQ = $db->prepare("select name from playlists where playlist_id = ?");
-		$playlistInfo = $playlistInfoQ->execute($playlistId);
+	function playList($playlistId){
+		$db = new PDO('mysql:host='.$_SERVER['SERVER_NAME'].';dbname='.$GLOBALS['dbName'], 'root');
+		$audioInfoQ = $db->
+		prepare("select id, name, artist, album_id from audio where id in (select audio_id from audio_to_playlist where playlist_id = ?);");
+		$audioInfoQ->execute(Array($playlistId));
+		$audioInfo = $audioInfoQ->fetchAll(PDO::FETCH_ASSOC);
+		// $playlistInfoQ = $db->prepare("select name, artist from playlists where playlist_id = ?");
+		// $playlistInfoQ->execute(Array($playlistId))
+		// $playlistInfo 
 
 
 
@@ -60,7 +63,7 @@
 				</div>
 				
 				<?php
-				foreach($audios as $audio)
+				foreach($audioInfo as $audio)
 				{
 					audio($audio);
 				} ?>

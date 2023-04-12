@@ -14,11 +14,11 @@ include "root_initials.php";
 <body>
 	<div class = "audio-list">
 		<?php
-			$db = new PDO('mysql:host=localhost;dbname=mysite_db','root');
-			$q = $db->prepare('select audio_id, name, artist, album from audio');
-			$q->execute(array());
-			$audios = $q->fetchAll(PDO::FETCH_ASSOC);
-			audioList($audios);
+			// $db = new PDO('mysql:host='.$_SERVER['SERVER_NAME'].';dbname='.$dbName,'root');
+			// $q = $db->prepare('select audio_id, name, artist, album from audio');
+			// $q->execute(array());
+			// $audios = $q->fetchAll(PDO::FETCH_ASSOC);
+			playList(1);
 		 ?>
 	</div>
 	<div id = "main-audio-controls" style = "display:none">
