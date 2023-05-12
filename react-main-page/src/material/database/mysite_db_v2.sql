@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 12 2023 г., 22:29
+-- Время создания: Апр 21 2023 г., 22:12
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.1.12
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `audio` (
   `id` mediumint(8) UNSIGNED NOT NULL,
-  `title` varchar(60) DEFAULT NULL,
+  `name` varchar(60) DEFAULT NULL,
   `artist` varchar(60) DEFAULT NULL,
   `album_id` mediumint(8) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -38,7 +38,7 @@ CREATE TABLE `audio` (
 -- Дамп данных таблицы `audio`
 --
 
-INSERT INTO `audio` (`id`, `title`, `artist`, `album_id`) VALUES
+INSERT INTO `audio` (`id`, `name`, `artist`, `album_id`) VALUES
 (1, 'Nothing ever matters', 'Metallica', 1),
 (2, 'Enter Sandman', 'Metallica', 1),
 (3, 'The Unforgiven', 'Metallica', 1),
@@ -66,6 +66,16 @@ CREATE TABLE `audio_to_playlist` (
   `playlist_id` mediumint(8) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `audio_to_playlist`
+--
+
+INSERT INTO `audio_to_playlist` (`audio_id`, `playlist_id`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -74,15 +84,16 @@ CREATE TABLE `audio_to_playlist` (
 
 CREATE TABLE `playlists` (
   `id` mediumint(8) UNSIGNED NOT NULL,
-  `name` varchar(80) DEFAULT NULL
+  `name` varchar(80) DEFAULT NULL,
+  `artist` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `playlists`
 --
 
-INSERT INTO `playlists` (`id`, `name`) VALUES
-(1, 'testPlaylist');
+INSERT INTO `playlists` (`id`, `name`, `artist`) VALUES
+(1, 'testPlaylist', 'Metallica');
 
 --
 -- Индексы сохранённых таблиц

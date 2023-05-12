@@ -12,6 +12,7 @@ include "root_initials.php";
 	<link rel="stylesheet" href="<?=$cssDir ?>FontAwesome/css/all.min.css">
 </head>
 <body>
+	<i><?= $_SERVER['SERVER_NAME'] ?></i>
 	<div class = "audio-list">
 		<?php
 			// $db = new PDO('mysql:host='.$_SERVER['SERVER_NAME'].';dbname='.$dbName,'root');

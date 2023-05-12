@@ -23,6 +23,17 @@
 	user-drag: none;
 	user-select: none;
 	margin-bottom: 5px;
+	background-color: black;
+}
+
+.selected
+{
+	background-color: #2A2A2A;
+}
+
+.audio .selected
+{
+	backgorund-color: #2A2A2A;
 }
 
 
