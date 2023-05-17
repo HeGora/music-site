@@ -1,0 +1,64 @@
+
+.audio
+{
+	display: grid;
+	grid-template-columns: 28px 35px 12fr 9fr 1fr;
+	grid-gap: 10px;
+	color: #ffffff;
+	user-drag: none;
+	user-select: none;
+	margin-bottom: 5px;
+}
+
+.audio .selected
+{
+	backgorund-color: #2A2A2A;
+}
+
+.btns
+{
+	text-align: center;
+}
+
+.index-btn
+{
+	display: flex;
+	align-items: center;
+}
+
+.index-btn .index
+{
+	width: 100%;
+	text-align: center;
+}
+
+.audio-title
+{
+	display:flex;
+	flex-direction: column;
+}
+
+.audio-album
+{
+	display:flex;
+	align-items: center;
+}
+
+.more-dur
+{
+	display:flex;
+	align-items: center;
+}
+
+
+.audio-image
+{
+	display: flex;
+	align-items:center;
+}
+
+.audio-image img
+{
+	max-height: 100%;
+	max-width: 100%;
+}

@@ -1,12 +1,11 @@
 import React from "react";
-import Audio from "components/Audio.js"
+import {AudioTag} from "components/AudioTag.js";
 
 class Playlist extends React.Component
 {
 	constructor(props)
 	{
 		super(props);
-		audioNum = 1;
 		console.log("Playlist");
 	}
 
@@ -29,14 +28,14 @@ class Playlist extends React.Component
 					</div>
 				</div>
 			</div>
-			<div className = "audio-list">
-				<div className = "table-header">
+			<div className = "table-header">
 					<div className = "th-num">#</div>
 					<div className = "th-title">Название</div>
 					<div className = "th-album">Альбом</div>
 					<div className = "th-sort">i</div>
-				</div>
-				
+			</div>
+			<div className = "audio-list">
+				{this.props.audios.map((audioInfo)=> <AudioTag key={audioInfo.audioNum} audioInfo={audioInfo} playBtnClick={(e)=>{console.log("playBtnClick");}} />)}
 				
 			</div>
 		</div>
@@ -47,3 +46,5 @@ class Playlist extends React.Component
 		)
 	}
 }
+
+export { Playlist };

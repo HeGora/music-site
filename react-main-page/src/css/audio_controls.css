@@ -8,96 +8,10 @@
 	color: #afafaf;
 }
 
-.audio-list
-{
-	background-color: #121212;
-	font-size: 20px;
-}
-
-.audio
-{
-	display: grid;
-	grid-template-columns: 16px 32px 12fr 9fr 1fr;
-	gap: 5px;
-	color: #ffffff;
-	user-drag: none;
-	user-select: none;
-	margin-bottom: 5px;
-	background-color: black;
-}
-
 .selected
 {
 	background-color: #2A2A2A;
 }
-
-.audio .selected
-{
-	backgorund-color: #2A2A2A;
-}
-
-
-.index-btn
-{
-	display: flex;
-	align-items: center;
-}
-
-.audio-title
-{
-	display:flex;
-	flex-direction: column;
-}
-
-.audio-album
-{
-	display:flex;
-	align-items: center;
-}
-
-.more-dur
-{
-	display:flex;
-	align-items: center;
-}
-
-.header-info
-{
-	color: #ffffff;
-}
-
-.table-header
-{
-	display: grid;
-	grid-template-columns: 53px 12fr 9fr 1fr;
-	gap: 5px;
-	color: #ffffff;
-}
-
-.th-num
-{
-	display:flex;
-	align-items: center;
-}
-
-.th-title
-{
-	display:flex;
-	align-items: center;
-}
-
-.th-album
-{
-	display:flex;
-	align-items: center;
-}
-
-.th-sort
-{
-	display:flex;
-	align-items: center;
-}
-
 
 #main-audio-controls
 {

@@ -1,0 +1,47 @@
+.playlist
+{
+	background-color: #1f1f1f;
+}
+
+.header-info
+{
+	color: #ffffff;
+}
+
+.table-header
+{
+	display: grid;
+	grid-template-columns: 60px 12fr 9fr 1fr;
+	gap: 5px;
+	color: #ffffff;
+}
+
+.th-num
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-title
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-album
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-sort
+{
+	display:flex;
+	align-items: center;
+}
+
+.audio-list
+{
+	background-color: #121212;
+	font-size: 20px;
+}
