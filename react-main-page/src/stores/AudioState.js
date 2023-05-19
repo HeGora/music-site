@@ -6,12 +6,12 @@ class AudioState
 		makeObservable(this, {
 			name: observable,
 			title: observable,
-			activeIndex: observable,
+			id: observable,
 		})
 	}
 	name = "none";
 	title = "none";
-	activeIndex = 0;
+	id = 0;
 	audio = new Audio();
 }
 

@@ -1,29 +1,45 @@
 import React from 'react';
+import {observer} from "mobx-react";
 import audioState from 'stores/AudioState.js';
+import playlistState from 'stores/PlaylistState.js';
 import {ReactComponent as PlayBtnIcon} from 'material/icons/play_btn_icon.svg';
+import {ReactComponent as PauseBtnIcon} from 'material/icons/pause_btn_icon.svg';
 
-class AudioTag extends React.Component
+const AudioTag = observer(class AudioTag extends React.Component
 {
 	constructor(props)
 	{
 		super(props);
-		audioState.audio.src = "https://cdn8.sefon.pro/prev/Jc_1rZxzn61HW8KpXlvqYw/1683973574/403/Andro%20feat.%20ELMAN%20%26%20TONI%20%26%20MONA%20-%20%D0%97%D0%B0%D1%80%D0%B8%20%28192kbps%29.mp3";
+		audioState.audio.src = process.env.PUBLIC_URL + "material/music/" + this.props.audioInfo.id + ".mp3";
 		this.state = {
 			isMouseIn: false,
 		};
-		console.log("something");
 	}
 
 	audioMouseEnter(event)
 	{
 		this.setState({isMouseIn: true});
-		audioState.audio.play();
+
 	}
 
 	audioMouseLeave(event)
 	{
 		this.setState({isMouseIn: false});
-		audioState.audio.pause();
+	}
+
+	playBtnClick(event)
+	{
+		playlistState.activeIndex = this.props.audioNum;
+		if(audioState.audio.paused)
+		{
+			audioState.audio.play();
+		}
+		else audioState.audio.pause();
+	}
+
+	makeImageSrc()
+	{
+		
 	}
 
 	render()
@@ -34,12 +50,16 @@ class AudioTag extends React.Component
 			onMouseLeave = {(event)=>{this.audioMouseLeave(event)}}>
 				<div className = "index-btn">
 				{
-					this.state.isMouseIn ?
-					<div className = "play-btn" onClick = {(e)=>{this.props.playBtnClick(e)}}>
-						<PlayBtnIcon fill = "white" />
-					</div>
+					(this.state.isMouseIn || playlistState.activeIndex == this.props.audioNum) ?
+					(<div className = "play-btn" onClick = {(event)=>{this.playBtnClick(event)}}>
+						{audioState.audio.paused ?
+						 	<PlayBtnIcon fill = "white" />
+						 	:
+						 	<PauseBtnIcon fill = "white" />
+						}
+					</div>)
 					:
-					<div className = "index">{this.props.audioInfo.audioNum}</div>
+					<div className = "index">{this.props.audioNum}</div>
 				}
 				</div>
 				<div className = "audio-image">
@@ -62,6 +82,8 @@ class AudioTag extends React.Component
 		)
 	}
 
-}
+});
 
-export { AudioTag };
+
+
+export default AudioTag;

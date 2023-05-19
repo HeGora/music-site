@@ -1,13 +1,25 @@
 import React from "react";
-import {AudioTag} from "components/AudioTag.js";
+import AudioTag from "components/AudioTag.js";
+import PlaylistState from "stores/PlaylistState.js"
 
 class Playlist extends React.Component
 {
 	constructor(props)
 	{
 		super(props);
-		console.log("Playlist");
 	}
+
+	createAudioList()
+	{
+		let audioNum = 0;
+		let result = this.props.audios.map((audioInfo)=> {
+						audioNum++;
+						return (<AudioTag key={audioNum} audioInfo={audioInfo} audioNum = {audioNum}/>);
+					});
+		PlaylistState.audioNum = audioNum;
+		return result;
+	}
+
 
 	
 
@@ -19,8 +31,8 @@ class Playlist extends React.Component
 				<div className = "header-image"></div>
 				<div className = "header-info">
 					<div className = "audio-title">
-						<div className = "audio-name">{this.props.name}</div>
-						<div className = "audio-artist">{this.props.artist}</div>
+						<div className = "audio-name">{this.props.playlistInfo.name}</div>
+						<div className = "audio-artist">{this.props.playlistInfo.artist}</div>
 					</div>
 					<div className = "num-time"></div>
 					<div className = "tags">
@@ -35,8 +47,7 @@ class Playlist extends React.Component
 					<div className = "th-sort">i</div>
 			</div>
 			<div className = "audio-list">
-				{this.props.audios.map((audioInfo)=> <AudioTag key={audioInfo.audioNum} audioInfo={audioInfo} playBtnClick={(e)=>{console.log("playBtnClick");}} />)}
-				
+				{this.createAudioList()}		
 			</div>
 		</div>
 
