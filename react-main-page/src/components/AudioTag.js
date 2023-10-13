@@ -1,16 +1,16 @@
 import React from 'react';
 import {observer} from "mobx-react";
+import {makeObservable, action} from "mobx";
 import audioState from 'stores/AudioState.js';
 import playlistState from 'stores/PlaylistState.js';
 import {ReactComponent as PlayBtnIcon} from 'material/icons/play_btn_icon.svg';
 import {ReactComponent as PauseBtnIcon} from 'material/icons/pause_btn_icon.svg';
 
-const AudioTag = observer(class AudioTag extends React.Component
+class AudioTag extends React.Component
 {
 	constructor(props)
 	{
 		super(props);
-		audioState.audio.src = process.env.PUBLIC_URL + "material/music/" + this.props.audioInfo.id + ".mp3";
 		this.state = {
 			isMouseIn: false,
 		};
@@ -18,8 +18,8 @@ const AudioTag = observer(class AudioTag extends React.Component
 
 	audioMouseEnter(event)
 	{
+		console.log(this.props.audioInfo.audioSrc);
 		this.setState({isMouseIn: true});
-
 	}
 
 	audioMouseLeave(event)
@@ -27,43 +27,61 @@ const AudioTag = observer(class AudioTag extends React.Component
 		this.setState({isMouseIn: false});
 	}
 
-	playBtnClick(event)
-	{
-		playlistState.activeIndex = this.props.audioNum;
-		if(audioState.audio.paused)
+	playBtnClick(event){
+		playlistState.setActiveIndex(this.props.audioNum);
+		if(this.props.audioInfo.audioSrc == audioState.getSrc)
 		{
-			audioState.audio.play();
+			if(audioState.isPaused)
+			{
+				audioState.play();
+			}
+			else
+			{
+				audioState.pause();
+			}
 		}
-		else audioState.audio.pause();
+		else
+		{
+			audioState.setInfo(this.props.audioInfo);
+			audioState.play();
+		}
 	}
 
-	makeImageSrc()
+	choosePlayBtnIcon()
 	{
-		
+		if(audioState.isPaused || playlistState.activeIndex != this.props.audioNum)
+			return (<PlayBtnIcon fill = "white" />);
+		else
+			return (<PauseBtnIcon fill = "white" />);
+	}
+
+	createPlayBtn()
+	{
+		if(this.state.isMouseIn || playlistState.activeIndex == this.props.audioNum)
+		{
+			return(
+				<div className = "play-btn" onClick = {(event)=>{this.playBtnClick(event)}}>
+					{this.choosePlayBtnIcon()}			
+				</div>
+			);
+		}
+		else
+		{
+			return (<div className = "index">{this.props.audioNum}</div>);
+		}
 	}
 
 	render()
 	{
 		return(
-			<div className = {this.state.isMouseIn ? "audio selected" : "audio"} data-url = {this.props.audioInfo.id + ".mp3"}
+			<div className = {this.state.isMouseIn ? "audio selected" : "audio"}
 			onMouseEnter = {(event)=>{this.audioMouseEnter(event)}} 
 			onMouseLeave = {(event)=>{this.audioMouseLeave(event)}}>
 				<div className = "index-btn">
-				{
-					(this.state.isMouseIn || playlistState.activeIndex == this.props.audioNum) ?
-					(<div className = "play-btn" onClick = {(event)=>{this.playBtnClick(event)}}>
-						{audioState.audio.paused ?
-						 	<PlayBtnIcon fill = "white" />
-						 	:
-						 	<PauseBtnIcon fill = "white" />
-						}
-					</div>)
-					:
-					<div className = "index">{this.props.audioNum}</div>
-				}
+					{this.createPlayBtn()}
 				</div>
 				<div className = "audio-image">
-					<img src = {process.env.PUBLIC_URL + 'material/images/albums/' + this.props.audioInfo.id + '.jpg'} /> 
+					<img src = {this.props.audioInfo.albumSrc} /> 
 				</div>
 				<div className = "audio-title">
 					<div className = "audio-name">{this.props.audioInfo.name}</div>
@@ -82,8 +100,8 @@ const AudioTag = observer(class AudioTag extends React.Component
 		)
 	}
 
-});
+}
 
 
 
-export default AudioTag;
+export default observer(AudioTag);
