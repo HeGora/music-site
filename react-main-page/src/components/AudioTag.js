@@ -2,9 +2,10 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {makeObservable, action} from "mobx";
 import audioState from 'stores/AudioState.js';
-import playlistState from 'stores/PlaylistState.js';
+import playerState from 'stores/PlayerState.js';
 import {ReactComponent as PlayBtnIcon} from 'material/icons/play_btn_icon.svg';
 import {ReactComponent as PauseBtnIcon} from 'material/icons/pause_btn_icon.svg';
+import {ReactComponent as MoreBtnIcon} from 'material/icons/more_btn_icon.svg';
 
 class AudioTag extends React.Component
 {
@@ -28,7 +29,7 @@ class AudioTag extends React.Component
 	}
 
 	playBtnClick(event){
-		playlistState.setActiveIndex(this.props.audioNum);
+		playerState.setActiveIndex(this.props.audioIndex);
 		if(this.props.audioInfo.audioSrc == audioState.getSrc)
 		{
 			if(audioState.isPaused)
@@ -49,7 +50,7 @@ class AudioTag extends React.Component
 
 	choosePlayBtnIcon()
 	{
-		if(audioState.isPaused || playlistState.activeIndex != this.props.audioNum)
+		if(audioState.isPaused || playerState.activeIndex != this.props.audioIndex)
 			return (<PlayBtnIcon fill = "white" />);
 		else
 			return (<PauseBtnIcon fill = "white" />);
@@ -57,7 +58,7 @@ class AudioTag extends React.Component
 
 	createPlayBtn()
 	{
-		if(this.state.isMouseIn || playlistState.activeIndex == this.props.audioNum)
+		if(this.state.isMouseIn || playerState.activeIndex == this.props.audioIndex)
 		{
 			return(
 				<div className = "play-btn" onClick = {(event)=>{this.playBtnClick(event)}}>
@@ -67,7 +68,7 @@ class AudioTag extends React.Component
 		}
 		else
 		{
-			return (<div className = "index">{this.props.audioNum}</div>);
+			return (<div className = "index">{this.props.audioIndex}</div>);
 		}
 	}
 
@@ -91,9 +92,9 @@ class AudioTag extends React.Component
 				<div className = "more-dur">
 				{
 					this.state.isMouseIn ?
-					<div className = "more-btn"><i className = "fa-light fa-arrow-down-to-line"></i></div>
+					<div className = "more-btn"><MoreBtnIcon fill = "white" /></div>
 					:
-					<div className = "duration"></div>
+					<div className = "duration">{this.props.audioInfo.audioDuration}</div>
 				}
 				</div>
 			</div>

@@ -11,8 +11,8 @@
 .table-header
 {
 	display: grid;
-	grid-template-columns: 60px 12fr 9fr 1fr;
-	gap: 5px;
+	grid-template-columns: 28px 35px 12fr 9fr 35px;
+	gap: 10px;
 	color: #ffffff;
 }
 
@@ -20,6 +20,7 @@
 {
 	display:flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .th-title

@@ -2,7 +2,7 @@
 .audio
 {
 	display: grid;
-	grid-template-columns: 28px 35px 12fr 9fr 1fr;
+	grid-template-columns: 28px 35px 12fr 9fr 35px;
 	grid-gap: 10px;
 	color: #ffffff;
 	user-drag: none;

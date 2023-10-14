@@ -1,13 +1,13 @@
 import {observable, makeObservable, computed, action} from "mobx";
 
-class PlaylistState
+class PlayerState
 {
-	audioNum = 0;
+	audios = [];
 	activeIndex = 0;
 	constructor()
 	{
 		makeObservable(this, {
-			audioNum: observable,
+			audios: observable,
 			activeIndex: observable,
 			setActiveIndex: action,
 		});
@@ -17,6 +17,6 @@ class PlaylistState
 	}
 }
 
-const playlistState = new PlaylistState();
+const playerState = new PlayerState();
 
-export default playlistState;
+export default playerState;

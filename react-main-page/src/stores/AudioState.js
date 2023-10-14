@@ -5,6 +5,7 @@ class AudioState
 	name = "none";
 	title = "none";
 	id = 0;
+	playlistId = 0;
 	audio = new Audio();
 	paused = true;
 	src = "none";
@@ -14,11 +15,14 @@ class AudioState
 			name: observable,
 			title: observable,
 			id: observable,
+			playlistId: observable,
 			paused: observable,
 			isPaused: computed,
+			getSrc: computed,
+			getPlaylistId: computed,
 			play: action,
 			pause: action,
-			setSrc: action,
+			setInfo: action
 		});
 	}
 	get isPaused()
@@ -28,6 +32,10 @@ class AudioState
 	get getSrc()
 	{
 		return this.src;
+	}
+	get getPlaylistId()
+	{
+		return this.playlistId;
 	}
 	play()
 	{
@@ -50,6 +58,7 @@ class AudioState
 		this.name = info.name;
 		this.artist = info.artist;
 		this.id = info.id;
+		this.playlistId = info.playlistId;
 	}
 }
 

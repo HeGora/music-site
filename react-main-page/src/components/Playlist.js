@@ -1,7 +1,8 @@
 import React from "react";
 import {observer} from "mobx-react";
 import AudioTag from "components/AudioTag.js";
-import PlaylistState from "stores/PlaylistState.js"
+import playerState from "stores/PlayerState.js"
+import {ReactComponent as SortIcon} from 'material/icons/sort_btn_icon.svg';
 
 class Playlist extends React.Component
 {
@@ -15,12 +16,11 @@ class Playlist extends React.Component
 
 	createAudioList()
 	{
-		let audioNum = 0;
+		let audioIndex = 0;
 		let result = this.props.audios.map((audioInfo)=> {
-						audioNum++;
-						return (<AudioTag key={audioNum} audioInfo={audioInfo} audioNum = {audioNum}/>);
+						audioIndex++;
+						return (<AudioTag key={audioIndex} audioInfo={audioInfo} audioIndex = {audioIndex}/>);
 					});
-		PlaylistState.audioNum = audioNum;
 		return result;
 	}
 
@@ -32,13 +32,17 @@ class Playlist extends React.Component
 		return(
 			<div className = "playlist">
 				<div className = "list-header">
-					<div className = "header-image"></div>
+					<div className = "header-image">
+						<img src = {this.props.playlistInfo.imageSrc} />
+					</div>
 					<div className = "header-info">
 						<div className = "audio-title">
 							<div className = "audio-name">{this.props.playlistInfo.name}</div>
 							<div className = "audio-artist">{this.props.playlistInfo.artist}</div>
 						</div>
-						<div className = "num-time"></div>
+						<div className = "num-time">
+							{this.props.audios.length} tracks, {this.props.playlistInfo.duration}
+						</div>
 						<div className = "tags">
 							
 						</div>
@@ -46,9 +50,10 @@ class Playlist extends React.Component
 				</div>
 				<div className = "table-header">
 						<div className = "th-num">#</div>
+						<div className = "th-cover"></div>
 						<div className = "th-title">Название</div>
 						<div className = "th-album">Альбом</div>
-						<div className = "th-sort">i</div>
+						<div className = "th-sort"><SortIcon fill = "white" /></div>
 				</div>
 				<div className = "audio-list">
 					{this.createAudioList()}		
