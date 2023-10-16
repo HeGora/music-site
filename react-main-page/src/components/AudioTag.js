@@ -3,6 +3,8 @@ import {observer} from "mobx-react";
 import {makeObservable, action} from "mobx";
 import audioState from 'stores/AudioState.js';
 import playerState from 'stores/PlayerState.js';
+import 'css/AudioTag.css';
+
 import {ReactComponent as PlayBtnIcon} from 'material/icons/play_btn_icon.svg';
 import {ReactComponent as PauseBtnIcon} from 'material/icons/pause_btn_icon.svg';
 import {ReactComponent as MoreBtnIcon} from 'material/icons/more_btn_icon.svg';
@@ -19,7 +21,6 @@ class AudioTag extends React.Component
 
 	audioMouseEnter(event)
 	{
-		console.log(this.props.audioInfo.audioSrc);
 		this.setState({isMouseIn: true});
 	}
 
@@ -45,6 +46,9 @@ class AudioTag extends React.Component
 		{
 			audioState.setInfo(this.props.audioInfo);
 			audioState.play();
+		}
+		if(this.props.audioInfo.playlistId != audioState.getPlaylistId){
+			this.props.onChangePlaylist();
 		}
 	}
 

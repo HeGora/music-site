@@ -1,0 +1,38 @@
+.audiolist-header
+{
+	display: grid;
+	grid-template-columns: 28px 35px 12fr 9fr 35px;
+	gap: 10px;
+	color: #ffffff;
+}
+
+.th-num
+{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.th-title
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-album
+{
+	display:flex;
+	align-items: center;
+}
+
+.th-sort
+{
+	display:flex;
+	align-items: center;
+}
+
+.audiolist-body
+{
+	background-color: #121212;
+	font-size: 20px;
+}

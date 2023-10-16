@@ -1,9 +1,6 @@
 
 import './App.css';
 import Playlist from 'components/Playlist.js';
-import 'css/audio_controls.css';
-import 'css/AudioTag.css';
-import 'css/Playlist.css';
 
 function App() {
 
@@ -11,6 +8,7 @@ function App() {
     id:'1',
     audioSrc: process.env.PUBLIC_URL + 'material/music/1.mp3',
     albumSrc: process.env.PUBLIC_URL + 'material/images/audios/3.jpg',
+    playlistId: 2,
     name:'thing',
     artist:'metallica',
     album:'1'
@@ -20,6 +18,7 @@ function App() {
     id:'2',
     audioSrc: process.env.PUBLIC_URL + 'material/music/2.mp3',
     albumSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
+    playlistId: 2,
     name:'thing1',
     artist:'metallica',
     album:'1'
@@ -29,6 +28,7 @@ function App() {
     id:'3',
     audioSrc: process.env.PUBLIC_URL + 'material/music/3.mp3',
     albumSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
+    playlistId: 2,
     name:'thing2',
     artist:'metallica',
     album:'1'

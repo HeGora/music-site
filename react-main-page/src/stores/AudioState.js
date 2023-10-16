@@ -1,11 +1,12 @@
 import {observable, makeObservable, computed, action} from "mobx";
+import playerState from "stores/PlayerState.js";
 
 class AudioState
 {
 	name = "none";
 	title = "none";
 	id = 0;
-	playlistId = 0;
+	playlistId = -1;
 	audio = new Audio();
 	paused = true;
 	src = "none";
@@ -24,34 +25,47 @@ class AudioState
 			pause: action,
 			setInfo: action
 		});
+		this.audio.addEventListener("ended", this.onAudioEnd, false)
 	}
+
+	onAudioEnd()
+	{
+		playerState.nextTrack();
+	}
+
 	get isPaused()
 	{
 		return this.paused;
 	}
+
 	get getSrc()
 	{
 		return this.src;
 	}
+
 	get getPlaylistId()
 	{
 		return this.playlistId;
 	}
+
 	play()
 	{
 		this.audio.play();
 		this.paused = false;
 	}
+
 	pause()
 	{
 		this.audio.pause();
 		this.paused = true;
 	}
+
 	setSrc(newSrc)
 	{
 		this.src = newSrc;
 		this.audio.src = newSrc;
 	}
+
 	setInfo(info)
 	{
 		this.setSrc(info.audioSrc);
