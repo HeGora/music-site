@@ -15,18 +15,18 @@
 	backgorund-color: #2A2A2A;
 }
 
-.btns
+.audio .btns
 {
 	text-align: center;
 }
 
-.index-btn
+.audio .index-btn
 {
 	display: flex;
 	align-items: center;
 }
 
-.index-btn .index
+.audio .index-btn .index
 {
 	width: 100%;
 	text-align: center;
@@ -44,7 +44,7 @@
 	align-items: center;
 }
 
-.more-dur
+.audio .more-dur
 {
 	display:flex;
 	align-items: center;

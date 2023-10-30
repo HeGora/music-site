@@ -6,26 +6,26 @@
 	color: #ffffff;
 }
 
-.th-num
+.audiolist-header .th-num
 {
 	display:flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.th-title
+.audiolist-header .th-title
 {
 	display:flex;
 	align-items: center;
 }
 
-.th-album
+.audiolist-header .th-album
 {
 	display:flex;
 	align-items: center;
 }
 
-.th-sort
+.audiolist-header .th-sort
 {
 	display:flex;
 	align-items: center;

@@ -38,6 +38,7 @@ function App() {
     name: 'master',
     artist: 'metallica',
     id: '1',
+    duration: '3:25'
   };
 
   const arr = [audioInfo1, audioInfo2, audioInfo3];
