@@ -4,21 +4,24 @@ import playerState from "stores/PlayerState.js";
 class AudioState
 {
 	name = "none";
-	title = "none";
+	artist = "none";
 	id = 0;
 	playlistId = -1;
 	audio = new Audio();
 	paused = true;
 	src = "none";
+	imageSrc = "none";
 
 	constructor(){
 		makeObservable(this, {
 			name: observable,
-			title: observable,
+			artist: observable,
 			id: observable,
 			playlistId: observable,
 			paused: observable,
 			isPaused: computed,
+			getName: computed,
+			getArtist: computed,
 			getSrc: computed,
 			getPlaylistId: computed,
 			play: action,
@@ -36,6 +39,16 @@ class AudioState
 	get isPaused()
 	{
 		return this.paused;
+	}
+
+	get getName()
+	{
+		return this.name;
+	}
+
+	get getArtist()
+	{
+		return this.artist;
 	}
 
 	get getSrc()

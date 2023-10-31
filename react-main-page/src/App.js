@@ -7,7 +7,7 @@ function App() {
   const audioInfo1 = {
     id:'1',
     audioSrc: process.env.PUBLIC_URL + 'material/music/1.mp3',
-    albumSrc: process.env.PUBLIC_URL + 'material/images/audios/3.jpg',
+    imageSrc: process.env.PUBLIC_URL + 'material/images/audios/3.jpg',
     playlistId: 2,
     name:'thing',
     artist:'metallica',
@@ -17,7 +17,7 @@ function App() {
     const audioInfo2 = {
     id:'2',
     audioSrc: process.env.PUBLIC_URL + 'material/music/2.mp3',
-    albumSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
+    imageSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
     playlistId: 2,
     name:'thing1',
     artist:'metallica',
@@ -27,7 +27,7 @@ function App() {
     const audioInfo3 = {
     id:'3',
     audioSrc: process.env.PUBLIC_URL + 'material/music/3.mp3',
-    albumSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
+    imageSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
     playlistId: 2,
     name:'thing2',
     artist:'metallica',

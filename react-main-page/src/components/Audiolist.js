@@ -3,7 +3,7 @@ import {observer} from "mobx-react";
 import AudioTag from "components/AudioTag.js";
 import playerState from "stores/PlayerState.js";
 import 'css/Audiolist.css';
-import {ReactComponent as SortIcon} from 'material/icons/sort_btn_icon.svg';
+import {ReactComponent as SortIcon} from 'material/icons/buttons/sort_btn_icon.svg';
 
 class Audiolist extends React.Component
 {

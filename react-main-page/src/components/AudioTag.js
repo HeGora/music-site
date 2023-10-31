@@ -5,9 +5,9 @@ import audioState from 'stores/AudioState.js';
 import playerState from 'stores/PlayerState.js';
 import 'css/AudioTag.css';
 
-import {ReactComponent as PlayBtnIcon} from 'material/icons/play_btn_icon.svg';
-import {ReactComponent as PauseBtnIcon} from 'material/icons/pause_btn_icon.svg';
-import {ReactComponent as MoreBtnIcon} from 'material/icons/more_btn_icon.svg';
+import {ReactComponent as PlayBtnIcon} from 'material/icons/buttons/play_btn_icon.svg';
+import {ReactComponent as PauseBtnIcon} from 'material/icons/buttons/pause_btn_icon.svg';
+import {ReactComponent as MoreBtnIcon} from 'material/icons/buttons/more_btn_icon.svg';
 
 class AudioTag extends React.Component
 {
@@ -86,7 +86,7 @@ class AudioTag extends React.Component
 					{this.createPlayBtn()}
 				</div>
 				<div className = "audio-image">
-					<img src = {this.props.audioInfo.albumSrc} /> 
+					<img src = {this.props.audioInfo.imageSrc} /> 
 				</div>
 				<div className = "audio-title">
 					<div className = "audio-name">{this.props.audioInfo.name}</div>
