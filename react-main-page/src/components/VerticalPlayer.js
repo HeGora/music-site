@@ -1,4 +1,5 @@
 import React from 'react';
+import {useCallback} from "react";
 import {observer} from "mobx-react";
 import audioState from 'stores/AudioState.js';
 
@@ -7,6 +8,11 @@ import {ReactComponent as PauseBtnIcon} from 'material/icons/buttons/pause_btn_i
 import {ReactComponent as NextBtnIcon} from 'material/icons/buttons/next_btn_icon.svg';
 
 function VerticalPlayer(props){
+
+	const playBtnClick = useCallback((event) =>{
+		audioState.switch();
+	}, []);
+
 	return(
 		<div className = "vertical-player">
 			<div className = "audio-info">
@@ -19,12 +25,12 @@ function VerticalPlayer(props){
 			<div className = "player-controls">
 				<div className = "main-btns">
 					<div className = "prev-btn"><NextBtnIcon/></div>
-					<div className = "play-btn">
+					<div className = "play-btn" onClick = {(event)=>{playBtnClick(event)}}>
 					{
 						audioState.isPaused ? 
-						<PauseBtnIcon/> 
-						: 
 						<PlayBtnIcon/>
+						:
+						<PauseBtnIcon/> 
 					}
 					</div>
 					<div className = "next-btn"><NextBtnIcon/></div>	

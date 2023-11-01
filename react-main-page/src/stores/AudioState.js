@@ -19,6 +19,7 @@ class AudioState
 			id: observable,
 			playlistId: observable,
 			paused: observable,
+			imageSrc: observable,
 			isPaused: computed,
 			getName: computed,
 			getArtist: computed,
@@ -26,6 +27,7 @@ class AudioState
 			getPlaylistId: computed,
 			play: action,
 			pause: action,
+			switch: action,
 			setInfo: action
 		});
 		this.audio.addEventListener("ended", this.onAudioEnd, false)
@@ -71,6 +73,18 @@ class AudioState
 	{
 		this.audio.pause();
 		this.paused = true;
+	}
+
+	switch()
+	{
+		if(this.paused)
+		{
+			this.play();
+		}
+		else
+		{
+			this.pause();
+		}
 	}
 
 	setSrc(newSrc)

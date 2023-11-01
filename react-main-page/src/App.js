@@ -1,6 +1,7 @@
 
 import './App.css';
 import Playlist from 'components/Playlist.js';
+import VerticalPlayer from 'components/VerticalPlayer.js';
 
 function App() {
 
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <div>
-    <Playlist audios = {arr} playlistInfo = {playlistInfo} />
+      <Playlist audios = {arr} playlistInfo = {playlistInfo} />
     </div>
   );
 }

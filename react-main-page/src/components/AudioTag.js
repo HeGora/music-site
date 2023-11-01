@@ -33,14 +33,7 @@ class AudioTag extends React.Component
 		playerState.setActiveIndex(this.props.audioIndex);
 		if(this.props.audioInfo.audioSrc == audioState.getSrc)
 		{
-			if(audioState.isPaused)
-			{
-				audioState.play();
-			}
-			else
-			{
-				audioState.pause();
-			}
+			audioState.switch();
 		}
 		else
 		{
