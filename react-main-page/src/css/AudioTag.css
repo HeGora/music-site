@@ -46,10 +46,14 @@
 
 .audio .more-dur
 {
-	display:flex;
+	display: flex;
 	align-items: center;
 }
 
+.audio .more-btn
+{
+	fill: white;
+}
 
 .audio-image
 {

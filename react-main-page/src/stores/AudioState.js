@@ -24,6 +24,7 @@ class AudioState
 			getName: computed,
 			getArtist: computed,
 			getSrc: computed,
+			getImageSrc: computed,
 			getPlaylistId: computed,
 			play: action,
 			pause: action,
@@ -56,6 +57,11 @@ class AudioState
 	get getSrc()
 	{
 		return this.src;
+	}
+
+	get getImageSrc()
+	{
+		return this.imageSrc;
 	}
 
 	get getPlaylistId()
@@ -100,6 +106,7 @@ class AudioState
 		this.artist = info.artist;
 		this.id = info.id;
 		this.playlistId = info.playlistId;
+		this.imageSrc = info.imageSrc;
 	}
 }
 

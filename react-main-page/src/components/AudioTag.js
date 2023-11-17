@@ -89,7 +89,7 @@ class AudioTag extends React.Component
 				<div className = "more-dur">
 				{
 					this.state.isMouseIn ?
-					<div className = "more-btn"><MoreBtnIcon fill = "white" /></div>
+					<div className = "more-btn"><MoreBtnIcon/></div>
 					:
 					<div className = "duration">{this.props.audioInfo.audioDuration}</div>
 				}

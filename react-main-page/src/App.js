@@ -46,6 +46,7 @@ function App() {
 
   return (
     <div>
+      <VerticalPlayer/>
       <Playlist audios = {arr} playlistInfo = {playlistInfo} />
     </div>
   );

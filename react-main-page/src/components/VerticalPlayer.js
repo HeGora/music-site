@@ -2,6 +2,7 @@ import React from 'react';
 import {useCallback} from "react";
 import {observer} from "mobx-react";
 import audioState from 'stores/AudioState.js';
+import 'css/VerticalPlayer.css';
 
 import {ReactComponent as PlayBtnIcon} from 'material/icons/buttons/play_btn_in_square_icon.svg';
 import {ReactComponent as PauseBtnIcon} from 'material/icons/buttons/pause_btn_in_square_icon.svg';
@@ -16,7 +17,7 @@ function VerticalPlayer(props){
 	return(
 		<div className = "vertical-player">
 			<div className = "audio-info">
-				<div className = "audio-image"></div>
+				<div className = "audio-image"><img src = {audioState.getImageSrc} /> </div>
 				<div className = "audio-title">
 					<div className = "audio-name">{audioState.getName}</div>
 					<div className = "audio-artist">{audioState.getArtist}</div>

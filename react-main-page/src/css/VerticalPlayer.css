@@ -1,0 +1,24 @@
+.vertical-player{
+    background-color: #3D3D3D;
+}
+
+.vertical-player .audio-image{
+    height: 192px;
+    width: 192px;
+}
+
+.vertical-player .main-btns{
+    display: flex;
+    height: 50px;
+}
+
+.vertical-player .play-btn{
+    display: flex;
+}
+
+.prev-btn{
+	transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
