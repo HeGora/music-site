@@ -25,7 +25,7 @@ function VerticalPlayer(props){
 			</div>
 			<div className = "player-controls">
 				<div className = "main-btns">
-					<div className = "prev-btn"><NextBtnIcon/></div>
+					<div className = "next-btn reversed"><NextBtnIcon/></div>
 					<div className = "play-btn" onClick = {(event)=>{playBtnClick(event)}}>
 					{
 						audioState.isPaused ? 

@@ -9,14 +9,21 @@
 
 .vertical-player .main-btns{
     display: flex;
-    height: 50px;
+    height: 40px;
 }
 
 .vertical-player .play-btn{
     display: flex;
+    margin: 0px 10px 0px 10px;
 }
 
-.prev-btn{
+.vertical-player .next-btn{
+    display: flex;
+    height: 35px;
+}
+
+
+.next-btn .reversed{
 	transform: scaleX(-1);
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
