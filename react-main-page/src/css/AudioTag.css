@@ -1,5 +1,5 @@
 
-.audio
+.audio-tag
 {
 	display: grid;
 	grid-template-columns: 28px 35px 12fr 9fr 35px;
@@ -10,58 +10,58 @@
 	margin-bottom: 5px;
 }
 
-.audio .selected
+.audio-tag.selected
 {
-	backgorund-color: #2A2A2A;
+	background-color: #2A2A2A;
 }
 
-.audio .btns
+.audio-tag .btns
 {
 	text-align: center;
 }
 
-.audio .index-btn
+.audio-tag .index-btn
 {
 	display: flex;
 	align-items: center;
 }
 
-.audio .index-btn .index
+.audio-tag .index
 {
 	width: 100%;
 	text-align: center;
 }
 
-.audio-title
+.audio-tag .audio-title
 {
 	display:flex;
 	flex-direction: column;
 }
 
-.audio-album
+.audio-tag .audio-album
 {
 	display:flex;
 	align-items: center;
 }
 
-.audio .more-dur
+.audio-tag .more-dur
 {
 	display: flex;
 	align-items: center;
 }
 
-.audio .more-btn
+.audio-tag .more-btn
 {
 	fill: white;
 }
 
-.audio-image
+.audio-tag .audio-image
 {
 	display: flex;
 	align-items:center;
 }
 
-.audio-image img
+.audio-tag .audio-image img
 {
 	max-height: 100%;
 	max-width: 100%;

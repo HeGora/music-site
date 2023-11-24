@@ -1,0 +1,30 @@
+.audio-progress-bar
+{
+	height: 100%;
+	width: 100%;
+	backgroundColor: whitesmoke;
+	position: relative;
+}
+
+.audio-progress-bar .progress
+{
+	height: 100%;
+}
+
+.audio-progress-bar .bar-tip
+{
+	display: none;
+	width: auto;
+	font-size: 12px;
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+	user-drag: none;
+	user-select: none;
+	top: -1rem;
+}
+
+.audio-progress-bar:hover .bar-tip
+{
+	display: initial;
+}

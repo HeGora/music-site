@@ -29,7 +29,8 @@ class AudioTag extends React.Component
 		this.setState({isMouseIn: false});
 	}
 
-	playBtnClick(event){
+	playBtnClick(event)
+	{
 		playerState.setActiveIndex(this.props.audioIndex);
 		if(this.props.audioInfo.audioSrc == audioState.getSrc)
 		{
@@ -72,7 +73,7 @@ class AudioTag extends React.Component
 	render()
 	{
 		return(
-			<div className = {this.state.isMouseIn ? "audio selected" : "audio"}
+			<div className = {this.state.isMouseIn ? "audio-tag selected" : "audio-tag"}
 			onMouseEnter = {(event)=>{this.audioMouseEnter(event)}} 
 			onMouseLeave = {(event)=>{this.audioMouseLeave(event)}}>
 				<div className = "index-btn">
