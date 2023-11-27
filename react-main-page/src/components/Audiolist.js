@@ -3,7 +3,6 @@ import {observer} from "mobx-react";
 import AudioTag from "components/AudioTag.js";
 import playerState from "stores/PlayerState.js";
 import 'css/Audiolist.css';
-import {ReactComponent as SortIcon} from 'material/icons/buttons/sort_btn_icon.svg';
 
 class Audiolist extends React.Component
 {
@@ -36,13 +35,6 @@ class Audiolist extends React.Component
 	{
 		return(
 			<div className = "audiolist">
-				<div className = "audiolist-header">
-						<div className = "th-num">#</div>
-						<div className = "th-cover"></div>
-						<div className = "th-title">Название</div>
-						<div className = "th-album">Альбом</div>
-						<div className = "th-sort"><SortIcon fill = "white" /></div>
-				</div>
 				<div className = "audiolist-body">
 					{this.createAudioList()}		
 				</div>

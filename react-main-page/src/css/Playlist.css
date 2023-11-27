@@ -7,3 +7,36 @@
 {
 	color: #ffffff;
 }
+
+.audiolist-header
+{
+	display: grid;
+	grid-template-columns: 35px 12fr 9fr 35px;
+	gap: 10px;
+	color: #ffffff;
+}
+
+.audiolist-header .th-num
+{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.audiolist-header .th-title
+{
+	display:flex;
+	align-items: center;
+}
+
+.audiolist-header .th-album
+{
+	display:flex;
+	align-items: center;
+}
+
+.audiolist-header .th-sort
+{
+	display:flex;
+	align-items: center;
+}

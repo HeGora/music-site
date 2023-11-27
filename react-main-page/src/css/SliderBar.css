@@ -1,17 +1,19 @@
-.audio-progress-bar
+.slider-bar
 {
 	height: 100%;
 	width: 100%;
-	backgroundColor: whitesmoke;
+	background-color: whitesmoke;
 	position: relative;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
 }
 
-.audio-progress-bar .progress
+.slider-bar .progress
 {
 	height: 100%;
 }
 
-.audio-progress-bar .bar-tip
+.slider-bar .bar-tip
 {
 	display: none;
 	width: auto;
@@ -19,12 +21,11 @@
 	text-align: center;
 	position: absolute;
 	z-index: 2;
-	user-drag: none;
-	user-select: none;
 	top: -1rem;
+	pointer-events: none;
 }
 
-.audio-progress-bar:hover .bar-tip
+.slider-bar:hover .bar-tip
 {
 	display: initial;
 }

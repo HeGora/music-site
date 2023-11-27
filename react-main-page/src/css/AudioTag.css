@@ -2,7 +2,7 @@
 .audio-tag
 {
 	display: grid;
-	grid-template-columns: 28px 35px 12fr 9fr 35px;
+	grid-template-columns: 45px 12fr 9fr 35px;
 	grid-gap: 10px;
 	color: #ffffff;
 	user-drag: none;
@@ -20,16 +20,49 @@
 	text-align: center;
 }
 
-.audio-tag .index-btn
+.audio-tag .play-btn-image-wrapper
 {
 	display: flex;
 	align-items: center;
+	position: relative;
+	margin: 5px;
 }
 
-.audio-tag .index
+.audio-tag .play-btn
 {
+	position: absolute;
+	height: 18px;
+	width: 18px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	top: 50%;
+}
+
+.audio-tag .play-btn-icon svg
+{
+	display: block;
+}
+
+.audio-tag .audio-image
+{
+	display: flex;
+	align-items:center;
+	position: relative;
+}
+
+.audio-tag .audio-image img
+{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.audio-tag .image-blur
+{
+	height: 100%;
 	width: 100%;
-	text-align: center;
+	background-color: black;
+	opacity: 0.4;
+	position: absolute;
 }
 
 .audio-tag .audio-title
@@ -53,16 +86,4 @@
 .audio-tag .more-btn
 {
 	fill: white;
-}
-
-.audio-tag .audio-image
-{
-	display: flex;
-	align-items:center;
-}
-
-.audio-tag .audio-image img
-{
-	max-height: 100%;
-	max-width: 100%;
 }

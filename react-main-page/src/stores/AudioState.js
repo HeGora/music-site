@@ -1,9 +1,9 @@
-import {observable, makeObservable, computed, action} from "mobx";
+import {observable, makeAutoObservable, extendObservable, computed, action} from "mobx";
 import playerState from "stores/PlayerState.js";
 
 class AudioState
 {
-	name = "none";
+	name = "none"; 
 	artist = "none";
 	id = 0;
 	imageSrc = "none";
@@ -11,36 +11,19 @@ class AudioState
 	audio = new Audio();
 	src = "none";
 	paused = true;
+	audioDuration = 0;
 	currentTime = 0;
+	volume = 1;
+	muted = false;
 
 	constructor(){
-		makeObservable(this, {
-			name: observable,
-			artist: observable,
-			id: observable,
-			playlistId: observable,
-			paused: observable,
-			currentTime: observable,
-			imageSrc: observable,
-
-			isPaused: computed,
-			getAudioDuration: computed,
-			getCurrentTime: computed,
-			getAudioProgress: computed,
-			getName: computed,
-			getArtist: computed,
-			getSrc: computed,
-			getImageSrc: computed,
-			getPlaylistId: computed,
-
-			play: action,
-			pause: action,
-			switch: action,
-			setInfo: action,
-			setCurrentTime: action,
-		});
-		this.audio.addEventListener("ended", this.audioEnd, false);
+		makeAutoObservable(this);
+		this.audio.addEventListener("ended", (event)=>{this.audioEnd(event)}, false);
 		this.audio.addEventListener("timeupdate", (event)=>{this.audioProgress(event)}, false);
+		this.audio.addEventListener("durationchange", (event)=>{this.durationChange(event)}, false);
+		this.audio.addEventListener("volumechange", (event)=>{this.volumeChange(event)}, false);
+		this.audio.addEventListener("play", (event)=>{this.syncPaused(event)}, false);
+		this.audio.addEventListener("pause", (event)=>{this.syncPaused(event)}, false);
 	}
 
 	audioEnd(event)
@@ -51,6 +34,18 @@ class AudioState
 	audioProgress(event)
 	{
 		this.currentTime = this.audio.currentTime;
+	}
+
+	durationChange(event){
+		this.audioDuration = this.audio.duration;
+	}
+
+	volumeChange(event){
+		this.volume = this.audio.volume;
+	}
+
+	syncPaused(event){
+		this.paused = this.audio.paused;
 	}
 
 	get getSrc()
@@ -65,7 +60,7 @@ class AudioState
 
 	get getAudioDuration()
 	{
-		return this.audio.duration;
+		return this.audioDuration;
 	}
 
 	get getCurrentTime()
@@ -73,9 +68,16 @@ class AudioState
 		return this.currentTime;
 	}
 
-	get getAudioProgress()
+	get getVolume()
 	{
-		return this.currentTime*100 / this.audio.duration;
+		if(this.muted)
+			return 0;
+		return this.volume;
+	}
+
+	get isMuted()
+	{
+		return this.muted;
 	}
 
 	get getName()
@@ -102,12 +104,21 @@ class AudioState
 	{
 		this.src = newSrc;
 		this.audio.src = newSrc;
+		this.audio.load();
 	}
 
 	setCurrentTime(time)
 	{
-		this.currentTime = time;
 		this.audio.currentTime = time;
+	}
+
+	setVolume(volume)
+	{
+		if(this.muted)
+		{
+			this.switchMute();
+		}
+		this.audio.volume = volume;	
 	}
 
 	setInfo(info)
@@ -123,18 +134,16 @@ class AudioState
 	play()
 	{
 		this.audio.play();
-		this.paused = false;
 	}
 
 	pause()
 	{
 		this.audio.pause();
-		this.paused = true;
 	}
 
 	switch()
 	{
-		if(this.paused)
+		if(this.audio.paused)
 		{
 			this.play();
 		}
@@ -142,6 +151,11 @@ class AudioState
 		{
 			this.pause();
 		}
+	}
+
+	switchMute(){
+		this.audio.muted = !this.audio.muted;
+		this.muted = this.audio.muted;
 	}
 }
 

@@ -3,6 +3,8 @@ import {observer} from "mobx-react";
 import Audiolist from "components/Audiolist.js";
 import 'css/Playlist.css';
 
+import {ReactComponent as SortIcon} from 'material/icons/buttons/sort_btn_icon.svg';
+
 class Playlist extends React.Component
 {
 	constructor(props){
@@ -29,6 +31,12 @@ class Playlist extends React.Component
 							
 						</div>
 					</div>
+				</div>
+				<div className = "audiolist-header">
+					<div className = "th-cover"></div>
+					<div className = "th-title">Название</div>
+					<div className = "th-album">Альбом</div>
+					<div className = "th-sort"><SortIcon fill = "white" /></div>
 				</div>
 				<Audiolist audios = {this.props.audios}/>
 			</div>

@@ -1,5 +1,7 @@
-import {observable, makeObservable, computed, action} from "mobx";
+import {observable, makeAutoObservable, computed, action} from "mobx";
+import audioState from "stores/AudioState.js";
 import {PLAYBACK_MODE} from "helpers/PlayerConstants.js";
+import {getRandomInteger} from "helpers/PlayerHelperFunctions.js";
 
 class PlayerState
 {
@@ -8,15 +10,7 @@ class PlayerState
 	playbackMode = PLAYBACK_MODE.REPEAT;
 	constructor()
 	{
-		makeObservable(this, {
-			audios: observable,
-			activeIndex: observable,
-			playbackMode: observable,
-			getPlaybackMode: computed,
-			nextPlaybackMode: action,
-			setActiveIndex: action,
-			setAudios: action
-		});
+		makeAutoObservable(this);
 	}
 
 	get getPlaybackMode(){
@@ -35,12 +29,21 @@ class PlayerState
 
 	nextTrack()
 	{
-		console.log("next track");
+		switch(this.playbackMode){
+			case PLAYBACK_MODE.REPEAT:
+				break;
+			case PLAYBACK_MODE.REPEAT_ONE:
+				audioState.setCurrentTime(0);
+				break;
+			case PLAYBACK_MODE.SHUFFLE:
+				audioState.setInfo(this.audios[getRandomInteger(0, this.audios.length)]);
+				break;
+		}
+	
 	}
 
 	nextPlaybackMode()
 	{
-		console.log("worked");
 		switch(this.playbackMode){
 			case PLAYBACK_MODE.REPEAT:
 				this.playbackMode = PLAYBACK_MODE.REPEAT_ONE;

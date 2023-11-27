@@ -49,25 +49,14 @@ class AudioTag extends React.Component
 	choosePlayBtnIcon()
 	{
 		if(audioState.isPaused || playerState.activeIndex != this.props.audioIndex)
-			return (<PlayBtnIcon fill = "white" />);
+			return (<PlayBtnIcon fill = "white"/>);
 		else
-			return (<PauseBtnIcon fill = "white" />);
+			return (<PauseBtnIcon fill = "white"/>);
 	}
 
-	createPlayBtn()
+	isActive()
 	{
-		if(this.state.isMouseIn || playerState.activeIndex == this.props.audioIndex)
-		{
-			return(
-				<div className = "play-btn" onClick = {(event)=>{this.playBtnClick(event)}}>
-					{this.choosePlayBtnIcon()}			
-				</div>
-			);
-		}
-		else
-		{
-			return (<div className = "index">{this.props.audioIndex}</div>);
-		}
+		return (this.state.isMouseIn || playerState.activeIndex == this.props.audioIndex);
 	}
 
 	render()
@@ -76,11 +65,24 @@ class AudioTag extends React.Component
 			<div className = {this.state.isMouseIn ? "audio-tag selected" : "audio-tag"}
 			onMouseEnter = {(event)=>{this.audioMouseEnter(event)}} 
 			onMouseLeave = {(event)=>{this.audioMouseLeave(event)}}>
-				<div className = "index-btn">
-					{this.createPlayBtn()}
-				</div>
-				<div className = "audio-image">
-					<img src = {this.props.audioInfo.imageSrc} /> 
+				<div className = "play-btn-image-wrapper">			
+					<div className = "audio-image">
+						<img src = {this.props.audioInfo.imageSrc} /> 
+						{
+							this.isActive() ?
+								<div className = "image-blur"></div>
+							: null
+						}
+					</div>
+					{
+						this.isActive() ?
+							<div className = "play-btn" onClick = {(event)=>{this.playBtnClick(event)}}>
+								<div className = "play-btn-icon">
+									{this.choosePlayBtnIcon()}			
+								</div>
+							</div>
+						: null
+					}
 				</div>
 				<div className = "audio-title">
 					<div className = "audio-name">{this.props.audioInfo.name}</div>

@@ -57,7 +57,18 @@
     height: 4px;
     width: 100%;
     margin: 20px 8px;
-    cursor: pointer;
-    -webkit-user-drag: none;
+}
+
+.vertical-player .volume-controls
+{
+    height: 20px;
+    display: inline-flex;
+}
+
+.vertical-player .volume-bar
+{
+    height: 5px;
+    width: 200px;
+    margin: 20px 8px;
 }
 
