@@ -2,9 +2,9 @@ import React from "react";
 import {observer} from "mobx-react";
 import AudioTag from "components/AudioTag.js";
 import playerState from "stores/PlayerState.js";
-import 'css/Audiolist.css';
+import 'css/AudioList.css';
 
-class Audiolist extends React.Component
+class AudioList extends React.Component
 {
 	constructor(props)
 	{
@@ -12,21 +12,23 @@ class Audiolist extends React.Component
 		this.state = {
 			audioNum: 0,
 		};
-		this.changePlayerData = this.changePlayerData.bind(this);
+		this.checkAudioListChange = this.checkAudioListChange.bind(this);
 	}
 
-	changePlayerData()
+	checkAudioListChange()
 	{
-		playerState.changePlayerData(this.props.audios);
+		if(this.props.id != playerState.getAudioListId){
+			playerState.changePlayerData(this.props.audios, this.props.id);
+		}
 	}
 
 	createAudioList()
 	{
-		let audioIndex = 0;
+		let audioIndex = -1;
 		let result = this.props.audios.map((audioInfo)=> {
 						audioIndex++;
 						return (<AudioTag key={audioIndex} audioInfo={audioInfo} audioIndex = {audioIndex} 
-										onChangePlaylist ={this.changePlayerData}/>);
+										checkAudioListChange ={this.checkAudioListChange}/>);
 					});
 		return result;
 	}
@@ -43,4 +45,4 @@ class Audiolist extends React.Component
 	}
 }
 
-export default observer(Audiolist);
+export default observer(AudioList);

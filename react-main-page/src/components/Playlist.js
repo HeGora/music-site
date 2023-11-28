@@ -38,7 +38,7 @@ class Playlist extends React.Component
 					<div className = "th-album">Альбом</div>
 					<div className = "th-sort"><SortIcon fill = "white" /></div>
 				</div>
-				<Audiolist audios = {this.props.audios}/>
+				<Audiolist audios = {this.props.audios} id = {this.props.id}/>
 			</div>
 		)
 	}

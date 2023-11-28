@@ -6,7 +6,8 @@ import {getRandomInteger} from "helpers/PlayerHelperFunctions.js";
 class PlayerState
 {
 	audios = [];
-	activeIndex = -1;
+	activeIndex = -10;
+	audioListId = -1;
 	playbackMode = PLAYBACK_MODE.REPEAT;
 	constructor()
 	{
@@ -17,9 +18,14 @@ class PlayerState
 		return this.playbackMode;
 	}
 
-	setActiveIndex(newIndex)
+	get getAudioListId(){
+		return this.audioListId;
+	}
+
+	changePlayerData(newAudios, newAudioListId)
 	{
-		this.activeIndex = newIndex;
+		this.audios = newAudios;
+		this.audioListId = newAudioListId;
 	}
 
 	setAudios(newAudios)
@@ -27,19 +33,43 @@ class PlayerState
 		this.audios = newAudios;
 	}
 
+	setActiveAudio(audioIndex)
+	{
+		this.activeIndex = audioIndex;
+		audioState.setInfo(this.audios[audioIndex]);
+		audioState.play();
+	}
+
+	playShuffle()
+	{
+		this.setActiveAudio(getRandomInteger(0, this.audios.length));
+	}
+
+	playRepeat()
+	{
+		this.setActiveAudio((this.activeIndex + 1) % this.audios.length);
+	}
+
+	playRepeatOne()
+	{
+		audioState.setCurrentTime(0);
+		audioState.play();
+	}
+
 	nextTrack()
 	{
 		switch(this.playbackMode){
 			case PLAYBACK_MODE.REPEAT:
+				this.playRepeat();
+				console.log(this.activeIndex);
 				break;
 			case PLAYBACK_MODE.REPEAT_ONE:
-				audioState.setCurrentTime(0);
+				this.playRepeatOne();
 				break;
 			case PLAYBACK_MODE.SHUFFLE:
-				audioState.setInfo(this.audios[getRandomInteger(0, this.audios.length)]);
+				this.playShuffle();
 				break;
 		}
-	
 	}
 
 	nextPlaybackMode()

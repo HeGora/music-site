@@ -7,7 +7,6 @@ class AudioState
 	artist = "none";
 	id = 0;
 	imageSrc = "none";
-	playlistId = -1;
 	audio = new Audio();
 	src = "none";
 	paused = true;
@@ -95,18 +94,6 @@ class AudioState
 		return this.imageSrc;
 	}
 
-	get getPlaylistId()
-	{
-		return this.playlistId;
-	}
-
-	setSrc(newSrc)
-	{
-		this.src = newSrc;
-		this.audio.src = newSrc;
-		this.audio.load();
-	}
-
 	setCurrentTime(time)
 	{
 		this.audio.currentTime = time;
@@ -121,13 +108,19 @@ class AudioState
 		this.audio.volume = volume;	
 	}
 
+	setSrc(newSrc)
+	{
+		this.src = newSrc;
+		this.audio.src = newSrc;
+		this.audio.load();
+	}
+
 	setInfo(info)
 	{
 		this.setSrc(info.audioSrc);
 		this.name = info.name;
 		this.artist = info.artist;
 		this.id = info.id;
-		this.playlistId = info.playlistId;
 		this.imageSrc = info.imageSrc;
 	}
 

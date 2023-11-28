@@ -17,6 +17,7 @@ class AudioTag extends React.Component
 		this.state = {
 			isMouseIn: false,
 		};
+		console.log(this.props.audioIndex);
 	}
 
 	audioMouseEnter(event)
@@ -31,18 +32,14 @@ class AudioTag extends React.Component
 
 	playBtnClick(event)
 	{
-		playerState.setActiveIndex(this.props.audioIndex);
+		this.props.checkAudioListChange();
 		if(this.props.audioInfo.audioSrc == audioState.getSrc)
 		{
 			audioState.switch();
 		}
 		else
 		{
-			audioState.setInfo(this.props.audioInfo);
-			audioState.play();
-		}
-		if(this.props.audioInfo.playlistId != audioState.getPlaylistId){
-			this.props.onChangePlaylist();
+			playerState.setActiveAudio(this.props.audioIndex);
 		}
 	}
 
