@@ -1,9 +1,9 @@
 import React from "react";
 import {observer} from "mobx-react";
 import Audiolist from "components/Audiolist.js";
-import 'css/Playlist.css';
+import "css/Playlist.css";
 
-import {ReactComponent as SortIcon} from 'material/icons/buttons/sort_btn_icon.svg';
+import {ReactComponent as SortIcon} from "material/icons/buttons/sort_btn_icon.svg";
 
 class Playlist extends React.Component
 {
@@ -20,9 +20,9 @@ class Playlist extends React.Component
 						<img src = {this.props.playlistInfo.imageSrc} />
 					</div>
 					<div className = "header-info">
-						<div className = "audio-title">
-							<div className = "audio-name">{this.props.playlistInfo.name}</div>
-							<div className = "audio-artist">{this.props.playlistInfo.artist}</div>
+						<div className = "playlist-title">
+							<div className = "playlist-name">{this.props.playlistInfo.name}</div>
+							<div className = "playlist-artist">{this.props.playlistInfo.artist}</div>
 						</div>
 						<div className = "num-time">
 							{this.props.audios.length} tracks, {this.props.playlistInfo.duration}
@@ -32,13 +32,16 @@ class Playlist extends React.Component
 						</div>
 					</div>
 				</div>
-				<div className = "audiolist-header">
-					<div className = "th-cover"></div>
-					<div className = "th-title">Название</div>
-					<div className = "th-album">Альбом</div>
-					<div className = "th-sort"><SortIcon fill = "white" /></div>
+				<div className = "audiolist-wrapper">
+					<div className = "audiolist-header">
+						<div className = "th-cover"></div>
+						<div className = "th-name">Название</div>
+						<div className = "th-artist">Исполнитель</div>
+						<div className = "th-album">Альбом</div>
+						<div className = "th-sort"><SortIcon fill = "white" /></div>
+					</div>
+					<Audiolist audios = {this.props.audios} id = {this.props.id}/>
 				</div>
-				<Audiolist audios = {this.props.audios} id = {this.props.id}/>
 			</div>
 		)
 	}

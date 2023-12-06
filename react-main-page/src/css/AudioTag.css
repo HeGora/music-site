@@ -1,13 +1,25 @@
+.audio-tag
+{
+	--audio-tag-name-font: 20px;
+	--audio-tag-album-font: calc(var(--audio-tag-name-font)*0.875);
+	--audio-tag-artist-font: calc(var(--audio-tag-name-font)*0.875);
+	--audio-tag-grid-gap: calc(var(--audio-tag-name-font)*0.5);
+
+	--audio-tag-image-size: calc(var(--audio-tag-name-font)*2);
+	--audio-tag-play-icon-size: var(--audio-tag-name-font);
+	--audio-tag-image-margin: calc(var(--audio-tag-image-size)/7);
+	--audio-tag-more-icon-size: calc(var(--audio-tag-name-font)*2);
+}
 
 .audio-tag
 {
 	display: grid;
-	grid-template-columns: 45px 12fr 9fr 35px;
-	grid-gap: 10px;
+	grid-template-columns: auto 1fr 1fr 1fr var(--audio-tag-more-icon-size);
+	grid-gap: var(--audio-tag-grid-gap);
+	align-items: center;
 	color: #ffffff;
 	user-drag: none;
 	user-select: none;
-	margin-bottom: 5px;
 }
 
 .audio-tag.selected
@@ -15,27 +27,21 @@
 	background-color: #2A2A2A;
 }
 
-.audio-tag .btns
-{
-	text-align: center;
-}
-
 .audio-tag .play-btn-image-wrapper
 {
-	display: flex;
-	align-items: center;
 	position: relative;
-	margin: 5px;
+	margin: var(--audio-tag-image-margin);
 }
 
 .audio-tag .play-btn
 {
+	height: var(--audio-tag-play-icon-size);
+	width: var(--audio-tag-play-icon-size);
 	position: absolute;
-	height: 18px;
-	width: 18px;
 	left: 50%;
-	transform: translate(-50%, -50%);
 	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
 }
 
 .audio-tag .play-btn-icon svg
@@ -45,8 +51,8 @@
 
 .audio-tag .audio-image
 {
-	display: flex;
-	align-items:center;
+	height: var(--audio-tag-image-size);
+	width: var(--audio-tag-image-size);
 	position: relative;
 }
 
@@ -60,30 +66,38 @@
 {
 	height: 100%;
 	width: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
 	background-color: black;
 	opacity: 0.4;
-	position: absolute;
 }
 
-.audio-tag .audio-title
+.audio-tag .audio-name
 {
-	display:flex;
-	flex-direction: column;
+	font-size: var(--audio-tag-name-font);
+}
+
+.audio-tag .audio-artist
+{
+	font-size: var(--audio-tag-album-font);
 }
 
 .audio-tag .audio-album
 {
-	display:flex;
-	align-items: center;
+	font-size: var(--audio-tag-artist-font);
 }
 
 .audio-tag .more-dur
 {
-	display: flex;
-	align-items: center;
+	
 }
 
 .audio-tag .more-btn
 {
+	width: var(--audio-tag-more-icon-size);
+	height: var(--audio-tag-more-icon-size);
 	fill: white;
 }

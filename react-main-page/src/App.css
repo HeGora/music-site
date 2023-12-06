@@ -1,1 +1,29 @@
+.app-area-wrapper
+{
+	height: 100%;
+	width: 100%;
+}
 
+.left-menu-area
+{
+	display: inline-block;
+	width: 25%;
+	height: 100%;
+}
+
+.menu-wrapper
+{
+	height: 30%;
+}
+
+.vertical-player-wrapper
+{
+	height: 70%;
+}
+
+.main-area
+{
+	display: inline-block;
+	width: 75%;
+	height: 100%;
+}

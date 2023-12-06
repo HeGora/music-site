@@ -36,20 +36,27 @@ function App() {
   };
 
   const playlistInfo = {
-    name: 'master',
-    artist: 'metallica',
+    name: 'Gail for life',
+    artist: 'Metallica',
     id: '1',
-    duration: '3:25'
+    duration: '3:25',
+    imageSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
   };
 
   const arr = [audioInfo1, audioInfo2, audioInfo3];
 
   return (
-    <div>
-      <div style={{width: "350px"}}>
-        <VerticalPlayer/>
+    <div className = "app-area-wrapper">
+      <div className = "left-menu-area">
+        <div className = "menu-wrapper">
         </div>
-      <Playlist audios = {arr} playlistInfo = {playlistInfo} />
+        <div className = "vertical-player-wrapper">
+          <VerticalPlayer/>
+        </div>
+      </div>
+      <div className = "main-area">
+        <Playlist audios = {arr} playlistInfo = {playlistInfo} />
+      </div>
     </div>
   );
 }

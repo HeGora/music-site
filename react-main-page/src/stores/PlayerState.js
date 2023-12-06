@@ -45,9 +45,14 @@ class PlayerState
 		this.setActiveAudio(getRandomInteger(0, this.audios.length));
 	}
 
-	playRepeat()
+	playRepeat(trackNum)
 	{
-		this.setActiveAudio((this.activeIndex + 1) % this.audios.length);
+		let nextIndex = this.activeIndex + trackNum;
+		if(nextIndex < 0)
+		{
+			nextIndex = 0;
+		}
+		this.setActiveAudio(nextIndex % this.audios.length);
 	}
 
 	playRepeatOne()
@@ -60,8 +65,7 @@ class PlayerState
 	{
 		switch(this.playbackMode){
 			case PLAYBACK_MODE.REPEAT:
-				this.playRepeat();
-				console.log(this.activeIndex);
+				this.playRepeat(1);
 				break;
 			case PLAYBACK_MODE.REPEAT_ONE:
 				this.playRepeatOne();

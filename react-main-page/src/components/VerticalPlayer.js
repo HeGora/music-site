@@ -21,6 +21,14 @@ function VerticalPlayer(props)
 		audioState.switch();
 	};
 
+	const nextBtnClick = (event)=>{
+		playerState.playRepeat(1);
+	}
+
+	const prevBtnClick = (event)=>{
+		playerState.playRepeat(-1);
+	}
+
 	const createCurrentTime = ()=>{
 		return timeFormatter(audioState.getCurrentTime) 
 		+ "/" + timeFormatter(audioState.getAudioDuration);
@@ -47,24 +55,26 @@ function VerticalPlayer(props)
 					<div className = "audio-artist">{audioState.getArtist}</div>
 				</div>
 			</div>
-			<div className = "player-controls">
-				<div className = "main-btns">
-					<div className = "next-btn reversed"><NextBtnIcon/></div>
-					<div className = "play-btn" onClick = {(event)=>{playBtnClick(event)}}>
-					{
-						audioState.isPaused ? 
-						<PlayBtnIcon/>
-						:
-						<PauseBtnIcon/> 
-					}
+			<div className = "player-controls-wrapper">
+				<div className = "player-controls">
+					<div className = "main-btns">
+						<div className = "next-btn reversed" onClick = {prevBtnClick}><NextBtnIcon/></div>
+						<div className = "play-btn" onClick = {(event)=>{playBtnClick(event)}}>
+						{
+							audioState.isPaused ? 
+							<PlayBtnIcon/>
+							:
+							<PauseBtnIcon/> 
+						}
+						</div>
+						<div className = "next-btn" onClick = {(event)=>{nextBtnClick(event)}}><NextBtnIcon/></div>	
 					</div>
-					<div className = "next-btn"><NextBtnIcon/></div>	
-				</div>
-				<div className = "side-btns">
-					<div className = "playback-mode-btn-wrapper">
-						<PlaybackModBtn/>
+					<div className = "side-btns">
+						<div className = "playback-mode-btn-wrapper">
+							<PlaybackModBtn/>
+						</div>
+						<div className = "options-btn"><OptionsIcon/></div>
 					</div>
-					<div className = "options-btn"><OptionsIcon/></div>
 				</div>
 			</div>
 			<div className = "audio-duration">

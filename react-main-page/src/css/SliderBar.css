@@ -17,11 +17,10 @@
 {
 	display: none;
 	width: auto;
-	font-size: 12px;
 	text-align: center;
 	position: absolute;
 	z-index: 2;
-	top: -1rem;
+	top: -1.4em;
 	pointer-events: none;
 }
 

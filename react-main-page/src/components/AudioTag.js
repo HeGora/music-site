@@ -81,10 +81,8 @@ class AudioTag extends React.Component
 						: null
 					}
 				</div>
-				<div className = "audio-title">
-					<div className = "audio-name">{this.props.audioInfo.name}</div>
-					<div className = "audio-artist">{this.props.audioInfo.artist}</div>
-				</div>
+				<div className = "audio-name">{this.props.audioInfo.name}</div>
+				<div className = "audio-artist">{this.props.audioInfo.artist}</div>
 				<div className = "audio-album">{this.props.audioInfo.album}</div>
 				<div className = "more-dur">
 				{
