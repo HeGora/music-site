@@ -1,6 +1,6 @@
 .audio-tag
 {
-	--audio-tag-name-font: 20px;
+	--audio-tag-name-font: 1em;
 	--audio-tag-album-font: calc(var(--audio-tag-name-font)*0.875);
 	--audio-tag-artist-font: calc(var(--audio-tag-name-font)*0.875);
 	--audio-tag-grid-gap: calc(var(--audio-tag-name-font)*0.5);

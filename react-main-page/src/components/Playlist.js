@@ -32,7 +32,7 @@ class Playlist extends React.Component
 						</div>
 					</div>
 				</div>
-				<div className = "audiolist-wrapper">
+				<div className = "playlist-body">
 					<div className = "audiolist-header">
 						<div className = "th-cover"></div>
 						<div className = "th-name">Название</div>
@@ -40,7 +40,9 @@ class Playlist extends React.Component
 						<div className = "th-album">Альбом</div>
 						<div className = "th-sort"><SortIcon fill = "white" /></div>
 					</div>
-					<Audiolist audios = {this.props.audios} id = {this.props.id}/>
+					<div className = "audiolist-wrapper">
+						<Audiolist audios = {this.props.audios} id = {this.props.id}/>
+					</div>
 				</div>
 			</div>
 		)
