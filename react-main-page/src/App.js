@@ -45,17 +45,30 @@ function App() {
 
   const arr = [audioInfo1, audioInfo2, audioInfo3];
 
+  const playlistColorTheme = {
+    audiolistColor: '#3D3D3D',
+    playlistColor: '#404040',
+  }
+
+  const verticalPlayerColorTheme = {
+    playerColor: '#3D3D3D',
+  }
+
   return (
     <div className = "app-area-wrapper">
       <div className = "left-menu-area">
         <div className = "menu-wrapper">
         </div>
         <div className = "vertical-player-wrapper">
-          <VerticalPlayer/>
+          <VerticalPlayer colorTheme = {verticalPlayerColorTheme}/>
         </div>
       </div>
       <div className = "main-area">
-        <Playlist audios = {arr} playlistInfo = {playlistInfo} />
+        <div className = "main-header"></div>
+        <div className = "playlist-wrapper">
+          <Playlist audios = {arr} playlistInfo = {playlistInfo}
+           colorTheme = {playlistColorTheme}/>
+        </div>
       </div>
     </div>
   );

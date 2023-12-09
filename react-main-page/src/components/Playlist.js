@@ -11,10 +11,15 @@ class Playlist extends React.Component
 		super(props);
 	}
 
+	colors = {
+		"--playlist-audiolist-background-color": this.props.colorTheme.audiolistColor,
+		"--playlist-background-color": this.props.colorTheme.playlistColor,
+	}
+
 	render()
 	{
 		return(
-			<div className = "playlist">
+			<div className = "playlist" style = {this.colors}>
 				<div className = "playlist-header">
 					<div className = "header-image">
 						<img src = {this.props.playlistInfo.imageSrc} />
