@@ -1,7 +1,7 @@
 
 import './App.css';
 import Playlist from 'components/Playlist.js';
-import VerticalPlayer from 'components/VerticalPlayer.js';
+import OpenedLeftMenu from "components/OpenedLeftMenu.js";
 
 function App() {
 
@@ -50,24 +50,23 @@ function App() {
     playlistColor: '#404040',
   }
 
-  const verticalPlayerColorTheme = {
-    playerColor: '#3D3D3D',
+  const leftMenuColorTheme = {
+    playerColor: '#404040',
+    menuColor: '#3D3D3D',
   }
 
   return (
     <div className = "app-area-wrapper">
-      <div className = "left-menu-area">
-        <div className = "menu-wrapper">
-        </div>
-        <div className = "vertical-player-wrapper">
-          <VerticalPlayer colorTheme = {verticalPlayerColorTheme}/>
-        </div>
-      </div>
+      <div className = "app-header"></div>
       <div className = "main-area">
-        <div className = "main-header"></div>
-        <div className = "playlist-wrapper">
-          <Playlist audios = {arr} playlistInfo = {playlistInfo}
-           colorTheme = {playlistColorTheme}/>
+        <div className = "left-menu-area">
+          <OpenedLeftMenu colorTheme = {leftMenuColorTheme}/>
+        </div>
+        <div className = "router-area">
+          <div className = "playlist-wrapper">
+            <Playlist audios = {arr} playlistInfo = {playlistInfo}
+             colorTheme = {playlistColorTheme}/>
+          </div>
         </div>
       </div>
     </div>

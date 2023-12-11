@@ -46,13 +46,13 @@ function VerticalPlayer(props)
 		setCurrentValue: useCallback((value)=>{audioState.setVolume(value)}, []),
 	}
 
-	const colorTheme = {
+	const styleVariables = {
 		"--player-background-color": props.colorTheme.playerColor,
 
 	}
 
 	return(
-		<div className = "vertical-player" style = {colorTheme}>
+		<div className = "vertical-player" style = {styleVariables}>
 			<div className = "audio-info">
 				<div className = "audio-image"><img src = {audioState.getImageSrc} /> </div>
 				<div className = "audio-title">
