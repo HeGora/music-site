@@ -46,9 +46,9 @@ class AudioTag extends React.Component
 	choosePlayBtnIcon()
 	{
 		if(audioState.isPaused || playerState.activeIndex != this.props.audioIndex)
-			return (<PlayBtnIcon fill = "white"/>);
+			return (<PlayBtnIcon/>);
 		else
-			return (<PauseBtnIcon fill = "white"/>);
+			return (<PauseBtnIcon/>);
 	}
 
 	isActive()

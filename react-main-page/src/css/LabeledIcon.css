@@ -1,0 +1,38 @@
+.labeled-icon
+{
+	--font-size: 1em;
+	--icon-size: calc(var(--font-size)*2.2);
+	--hover-color: ;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+}
+
+.labeled-icon
+{
+	padding: calc(var(--icon-size)/4);
+}
+
+.labeled-icon svg
+{
+	display: block;
+}
+
+.labeled-icon:hover
+{
+	background-color: var(--hover-color);
+}
+
+.labeled-icon .icon-wrapper
+{
+	width: var(--icon-size);
+	height: var(--icon-size);
+	margin-bottom: calc(var(--icon-size)/4);
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.labeled-icon .label-wrapper
+{
+	font-size: var(--font-size);
+	text-align: center;
+}

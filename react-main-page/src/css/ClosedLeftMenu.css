@@ -1,32 +1,32 @@
-.opened-left-menu
+.closed-left-menu
 {
-	--left-menu-font: 24px;
-	--left-menu-padding: var(--left-menu-font);
+	--left-menu-font: 11px;
+	--left-menu-padding: calc(var(--left-menu-font)*0.5);
 	--left-menu-background-color: ;
 }
 
-.opened-left-menu
+.closed-left-menu
 {
 	height: 100%;
 }
 
-.opened-left-menu svg
+.closed-left-menu svg
 {
 	display: block;
 }
 
-.opened-left-menu .link-inner-wrapper
+.closed-left-menu .link-inner-wrapper
 {
 	font-size: var(--left-menu-font);
 }
 
-.opened-left-menu .top-area
+.closed-left-menu .top-area
 {
 	background-color: var(--left-menu-background-color);
 	padding: var(--left-menu-padding);
 }
 
-.opened-left-menu .bottom-area
+.closed-left-menu .bottom-area
 {
 	border-top-style: solid;
 	border-top-width: 2.5px;

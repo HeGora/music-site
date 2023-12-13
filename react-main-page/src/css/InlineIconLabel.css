@@ -1,0 +1,38 @@
+.inline-icon-label
+{
+	--font-size: 1em;
+	--icon-size: var(--font-size);
+	--hover-color: ;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+}
+
+.inline-icon-label
+{
+	padding: calc(var(--icon-size)/4);
+}
+
+.inline-icon-label svg
+{
+	display: block;
+}
+
+.inline-icon-label:hover
+{
+	background-color: var(--hover-color);
+}
+
+.inline-icon-label .icon-wrapper
+{
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	margin-right: calc(var(--icon-size)/2);
+}
+
+.inline-icon-label .label-wrapper
+{
+	font-size: var(--font-size);
+	display: inline-block;
+	vertical-align: text-bottom;
+}

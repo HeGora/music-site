@@ -64,7 +64,7 @@ function VerticalPlayer(props)
 				<div className = "player-controls">
 					<div className = "main-btns">
 						<div className = "next-btn reversed" onClick = {prevBtnClick}><NextBtnIcon/></div>
-						<div className = "play-btn" onClick = {(event)=>{playBtnClick(event)}}>
+						<div className = "play-btn" onClick = {playBtnClick}>
 						{
 							audioState.isPaused ? 
 							<PlayBtnIcon/>
@@ -72,7 +72,7 @@ function VerticalPlayer(props)
 							<PauseBtnIcon/> 
 						}
 						</div>
-						<div className = "next-btn" onClick = {(event)=>{nextBtnClick(event)}}><NextBtnIcon/></div>	
+						<div className = "next-btn" onClick = {nextBtnClick}><NextBtnIcon/></div>	
 					</div>
 					<div className = "side-btns">
 						<div className = "playback-mode-btn-wrapper">

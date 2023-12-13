@@ -1,70 +1,71 @@
-
-import './App.css';
-import Playlist from 'components/Playlist.js';
+import React from "react";
+import {useState} from "react";
+import "./App.css";
+import Playlist from "components/Playlist.js";
 import OpenedLeftMenu from "components/OpenedLeftMenu.js";
+import ClosedLeftMenu from "components/ClosedLeftMenu.js";
+
+import {ReactComponent as BackArrowIcon} from "material/icons/buttons/back_arrow_btn_icon.svg";
+import {DEMO_PAGE_DATA} from "helpers/PlayerConstants.js"; 
 
 function App() {
 
-  const audioInfo1 = {
-    id:'1',
-    audioSrc: process.env.PUBLIC_URL + 'material/music/1.mp3',
-    imageSrc: process.env.PUBLIC_URL + 'material/images/audios/3.jpg',
-    playlistId: 2,
-    name:'thing',
-    artist:'metallica',
-    album:'1'
-  };
+  const [isMenuOpened, setMenuOpened] = useState(true);
 
-    const audioInfo2 = {
-    id:'2',
-    audioSrc: process.env.PUBLIC_URL + 'material/music/2.mp3',
-    imageSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
-    playlistId: 2,
-    name:'thing1',
-    artist:'metallica',
-    album:'1'
-  };
+  const leftMenuSwitchClick = (event)=>{
+    setMenuOpened(!isMenuOpened);
+  }
 
-    const audioInfo3 = {
-    id:'3',
-    audioSrc: process.env.PUBLIC_URL + 'material/music/3.mp3',
-    imageSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
-    playlistId: 2,
-    name:'thing2',
-    artist:'metallica',
-    album:'1'
-  };
+  const appColorTheme = {
+    "--app-primary-background-color": "#303030",
+    "--app-secondary-background-color": "#2D2D2D",
+    "--app-header-color": "#404040",
+    "--app-blank-background-color": "#1E1E1E",
+    
+    "--app-primary-icon-color": "#ffffff",
+    "--app-secondary-icon-color": "#000000",
 
-  const playlistInfo = {
-    name: 'Gail for life',
-    artist: 'Metallica',
-    id: '1',
-    duration: '3:25',
-    imageSrc: process.env.PUBLIC_URL + 'material/images/playlists/1.jpg',
-  };
+    "--app-primary-text-color": "#ffffff",
+    "--app-secondary-text-color": "#808080",
 
-  const arr = [audioInfo1, audioInfo2, audioInfo3];
+    "--app-light-select-color": "#505050",
+    "--app-dark-select-color": "#2A2A2A",
+  } 
 
   const playlistColorTheme = {
-    audiolistColor: '#3D3D3D',
-    playlistColor: '#404040',
+    audiolistColor: appColorTheme["--app-secondary-background-color"],
+    playlistColor: appColorTheme["--app-primary-background-color"],
   }
 
   const leftMenuColorTheme = {
-    playerColor: '#404040',
-    menuColor: '#3D3D3D',
+    playerColor: appColorTheme["--app-secondary-background-color"],
+    menuColor: appColorTheme["--app-primary-background-color"],
+    menuHoverColor: appColorTheme["--app-light-select-color"],
   }
 
   return (
-    <div className = "app-area-wrapper">
+    <div className = "app-area-wrapper" style = {appColorTheme}>
+      <div className = "left-menu-switch-wrapper">
+        <div className = "left-menu-switch" onClick = {leftMenuSwitchClick}>
+          <div className = "arrow-icon-wrapper">
+            <BackArrowIcon/>
+          </div>
+        </div>
+      </div>
       <div className = "app-header"></div>
       <div className = "main-area">
         <div className = "left-menu-area">
-          <OpenedLeftMenu colorTheme = {leftMenuColorTheme}/>
+          { 
+            isMenuOpened ?
+              <OpenedLeftMenu colorTheme = {leftMenuColorTheme}/>
+              :
+              <ClosedLeftMenu colorTheme = {leftMenuColorTheme}/>
+          }
         </div>
         <div className = "router-area">
           <div className = "playlist-wrapper">
-            <Playlist audios = {arr} playlistInfo = {playlistInfo}
+            <Playlist audios = {DEMO_PAGE_DATA.audios} 
+             playlistInfo = {DEMO_PAGE_DATA.playlistInfo}
              colorTheme = {playlistColorTheme}/>
           </div>
         </div>
