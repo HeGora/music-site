@@ -1,6 +1,8 @@
 .app-area-wrapper
 {
 	--app-header-height: 50px;
+	--app-opened-menu-width: ;
+	--app-closed-menu-width: ;
 
 	--app-primary-background-color: ;
 	--app-secondary-background-color: ;
@@ -32,7 +34,7 @@
 .left-menu-switch-wrapper
 {
 	position: fixed;
-	width: 80px;
+	width: var(--app-left-menu-width);
 	height: var(--app-header-height);
 	background-color: var(--app-primary-background-color);
 }
@@ -48,8 +50,8 @@
 
 .left-menu-switch .arrow-icon-wrapper
 {
-	height: 22px;
-	width: 22px;
+	height: 24px;
+	width: 24px;
 }
 
 .app-header
@@ -68,7 +70,7 @@
 
 .left-menu-area
 {
-	flex: 0 0 250px;
+	flex: 0 0 var(--app-left-menu-width);
 	height: 100%;
 	background-color: var(--app-primary-background-color);
 	color: var(--app-primary-text-color);

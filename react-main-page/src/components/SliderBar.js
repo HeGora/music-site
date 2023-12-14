@@ -17,9 +17,10 @@ function SliderBar(props){
 	};
 
    	const  barMouseMove = (event) => {
-   		let userCursorMod = event.clientX - event.currentTarget.getBoundingClientRect().x;
+   		let userCursorMod = (event.clientX + 1) - event.currentTarget.getBoundingClientRect().x;
+   		console.log(event.clientX);
+   		console.log(event.currentTarget.getBoundingClientRect().x);
    		setBarTipShift(userCursorMod);
-
    		let currentValue = userCursorMod / event.currentTarget.clientWidth
    		 * props.stateInfo.getMaxValue();
 		setBarTipValue(props.formatter(currentValue));

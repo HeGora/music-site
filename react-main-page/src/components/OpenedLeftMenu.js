@@ -42,7 +42,7 @@ function OpenedLeftMenu(props)
 				</div>
 			</div>
 			<div className = "bottom-area">
-          		<VerticalPlayer colorTheme = {verticalPlayerColorTheme}/>
+          		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} playBtnSize = "40px"/>
 			</div>
 		</div>
 	)

@@ -5,12 +5,13 @@ import Playlist from "components/Playlist.js";
 import OpenedLeftMenu from "components/OpenedLeftMenu.js";
 import ClosedLeftMenu from "components/ClosedLeftMenu.js";
 
-import {ReactComponent as BackArrowIcon} from "material/icons/buttons/back_arrow_btn_icon.svg";
+import {ReactComponent as BackArrowIcon} from "material/icons/back_arrow_btn_icon.svg";
+import {ReactComponent as ClosedMenuIcon} from "material/icons/three_line_menu_icon.svg";
 import {DEMO_PAGE_DATA} from "helpers/PlayerConstants.js"; 
 
 function App() {
 
-  const [isMenuOpened, setMenuOpened] = useState(true);
+  const [isMenuOpened, setMenuOpened] = useState(false);
 
   const leftMenuSwitchClick = (event)=>{
     setMenuOpened(!isMenuOpened);
@@ -30,6 +31,7 @@ function App() {
 
     "--app-light-select-color": "#505050",
     "--app-dark-select-color": "#2A2A2A",
+    "--app-left-menu-width": (isMenuOpened ? "250px" : "80px"),
   } 
 
   const playlistColorTheme = {
@@ -48,7 +50,12 @@ function App() {
       <div className = "left-menu-switch-wrapper">
         <div className = "left-menu-switch" onClick = {leftMenuSwitchClick}>
           <div className = "arrow-icon-wrapper">
-            <BackArrowIcon/>
+            { 
+              isMenuOpened ?
+                <ClosedMenuIcon/>
+                :
+                <BackArrowIcon/>
+            }
           </div>
         </div>
       </div>
