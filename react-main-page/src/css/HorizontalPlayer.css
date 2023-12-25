@@ -1,0 +1,28 @@
+.horizontal-player
+{
+	--player-play-btn-size: 40px;
+    --player-next-btn-size: calc(var(--player-play-btn-size)*1);
+    --player-side-btns-size: calc(var(--player-play-btn-size)*0.625);
+    --player-side-btns-margin: calc(var(--player-side-btns-size)/4);
+    --player-volume-icon-size: calc(var(--player-play-btn-size)*0.5);
+
+    --player-image-size: calc(var(--player-play-btn-size)*4);
+    --player-indent-size: calc(var(--player-play-btn-size)*0.4);
+
+    --player-base-font-size: calc(var(--player-play-btn-size)*0.4);
+    --player-name-font-size: calc(var(--player-base-font-size)*1.5);
+    --player-artist-font-size: calc(var(--player-base-font-size)*1);
+    --player-bar-tip-font-size: calc(var(--player-base-font-size)*0.875);
+
+    --player-background-color: ;
+}
+
+.horizontal-player
+{
+	width: 100%;
+}
+
+.horizontal-player svg
+{
+	display: block;
+}

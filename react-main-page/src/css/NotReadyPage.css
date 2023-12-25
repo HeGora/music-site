@@ -1,0 +1,50 @@
+.not-ready-page
+{
+	height: 100%;
+	width: 100%;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.not-ready-page .page-wrapper
+{
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.not-ready-page a:link
+{
+	text-decoration: none;
+}
+
+.not-ready-page a:visited
+{
+	text-decoration: none;
+}
+
+.not-ready-page .page-message
+{
+	font-size: 35px;
+	padding: 15px;
+}
+
+.not-ready-page .back-link
+{
+	padding: 10px;
+	width: 160px;
+	font-size: 16px;
+	background-color: #8a0f14;
+	color: white;
+	text-align: center;
+	text-justify: center;
+}
+
+.not-ready-page .back-link:hover
+{
+	background-color: #c4161d;
+}

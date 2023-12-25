@@ -3,11 +3,22 @@
 	--left-menu-font: 11px;
 	--left-menu-padding: calc(var(--left-menu-font)*0.5);
 	--left-menu-background-color: ;
+	--left-menu-text-color: ;
 }
 
 .closed-left-menu
 {
 	height: 100%;
+}
+
+.closed-left-menu a:link
+{
+	text-decoration: none;
+}
+
+.closed-left-menu a:visited
+{
+	text-decoration: none;
 }
 
 .closed-left-menu svg
@@ -18,6 +29,7 @@
 .closed-left-menu .link-inner-wrapper
 {
 	font-size: var(--left-menu-font);
+	color: var(--left-menu-text-color);
 }
 
 .closed-left-menu .top-area

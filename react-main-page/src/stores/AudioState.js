@@ -15,7 +15,8 @@ class AudioState
 	volume = 1;
 	muted = false;
 
-	constructor(){
+	constructor()
+	{
 		makeAutoObservable(this);
 		this.audio.addEventListener("ended", (event)=>{this.audioEnd(event)}, false);
 		this.audio.addEventListener("timeupdate", (event)=>{this.audioProgress(event)}, false);

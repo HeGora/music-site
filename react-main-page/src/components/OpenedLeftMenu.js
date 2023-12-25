@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"
 import {observer} from "mobx-react";
+import colorThemeState from "stores/ColorThemeState.js";
 import VerticalPlayer from "components/VerticalPlayer.js";
 import InlineIconLabel from "components/InlineIconLabel.js";
 import "css/OpenedLeftMenu.css";
@@ -12,34 +13,41 @@ import {ReactComponent as SearchIcon} from "material/icons/search_icon.svg";
 function OpenedLeftMenu(props)
 {
 	const styleVariables = {
-		"--left-menu-background-color": props.colorTheme.menuColor,
+		"--left-menu-background-color": colorThemeState.getPrimaryBackgroundColor,
+		"--left-menu-text-color": colorThemeState.getPrimaryTextColor,
 	}
 
 	const verticalPlayerColorTheme = {
-		playerColor: props.colorTheme.playerColor,
+		playerColor: colorThemeState.getSecondaryBackgroundColor,
 	}
 
 	return(
 		<div className = "opened-left-menu" style = {styleVariables}>
 			<div className = "top-area">
-				<div className = "link-inner-wrapper">
-					<InlineIconLabel icon = {<HomeIcon/>} 
-					hoverColor = {props.colorTheme.menuHoverColor}>
-						Главная
-					</InlineIconLabel>
-				</div>
-				<div className = "link-inner-wrapper">
-					<InlineIconLabel icon = {<MusicLybraryIcon/>}
-					hoverColor = {props.colorTheme.menuHoverColor}>
-						Библиотека
-					</InlineIconLabel>
-				</div>
-				<div className = "link-inner-wrapper">
-					<InlineIconLabel icon = {<SearchIcon/>}
-					hoverColor = {props.colorTheme.menuHoverColor}>
-						Поиск
-					</InlineIconLabel>
-				</div>
+				<Link to = '/'>
+					<div className = "link-inner-wrapper">
+						<InlineIconLabel icon = {<HomeIcon/>} 
+						hoverColor = {colorThemeState.lightSelectColor}>
+							Главная
+						</InlineIconLabel>
+					</div>
+				</Link>
+				<Link to = '/'>
+					<div className = "link-inner-wrapper">
+						<InlineIconLabel icon = {<MusicLybraryIcon/>}
+						hoverColor = {colorThemeState.lightSelectColor}>
+							Библиотека
+						</InlineIconLabel>
+					</div>
+				</Link>
+				<Link to = '/'>
+					<div className = "link-inner-wrapper">
+						<InlineIconLabel icon = {<SearchIcon/>}
+						hoverColor = {colorThemeState.lightSelectColor}>
+							Поиск
+						</InlineIconLabel>
+					</div>
+				</Link>
 			</div>
 			<div className = "bottom-area">
           		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} playBtnSize = "40px"/>

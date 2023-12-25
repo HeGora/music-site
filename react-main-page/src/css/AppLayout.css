@@ -1,0 +1,84 @@
+.app-area-wrapper
+{
+  --app-header-height: 50px;
+  --app-left-menu-closed-width: 80px;
+  --app-left-menu-opened-width: 250px;
+
+  --app-primary-background-color: ;
+  --app-secondary-background-color: ;
+  --app-header-color: ;
+  --app-blank-background-color: ;
+  
+  --app-primary-icon-color: ;
+  --app-secondary-background-color: ;
+
+  --app-primary-text-color: ;
+  --app-secondary-text-color: ;
+
+  --app-light-select-color: ;
+  --app-dark-select-color: ;
+}
+
+.app-area-wrapper
+{
+  height: 100%;
+  width: 100%;
+  background-color: var(--app-blank-background-color);
+}
+
+.app-area-wrapper svg
+{
+  fill: var(--app-primary-icon-color);
+}
+
+.left-menu-switch-wrapper
+{
+  position: fixed;
+  width: var(--app-left-menu-width);
+  height: var(--app-header-height);
+  background-color: var(--app-primary-background-color);
+}
+
+.left-menu-switch
+{
+  width: 80px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-menu-switch .arrow-icon-wrapper
+{
+  height: 24px;
+  width: 24px;
+}
+
+.app-header
+{
+  height: var(--app-header-height);
+  width: 100%;
+  background-color: var(--app-header-color);
+}
+
+.main-area
+{
+  display: flex;
+  width: 100%;
+  height: calc(100% - var(--app-header-height));
+}
+
+.left-menu-area
+{
+  flex: 0 0 var(--app-left-menu-width);
+  height: 100%;
+  background-color: var(--app-primary-background-color);
+  color: var(--app-primary-text-color);
+}
+
+.router-area
+{
+  flex: 1 1;
+  height: 100%;
+
+}
