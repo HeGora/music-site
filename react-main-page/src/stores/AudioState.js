@@ -3,21 +3,22 @@ import playerState from "stores/PlayerState.js";
 
 class AudioState
 {
-	name = "none"; 
-	artist = "none";
+	name = ""; 
+	artist = "";
 	id = 0;
-	imageSrc = "none";
+	imageSrc = "";
 	audio = new Audio();
-	src = "none";
+	src = "";
 	paused = true;
 	audioDuration = 0;
 	currentTime = 0;
-	volume = 1;
+	volume = 0.3;
 	muted = false;
 
 	constructor()
 	{
 		makeAutoObservable(this);
+		this.audio.volume = 0.3;
 		this.audio.addEventListener("ended", (event)=>{this.audioEnd(event)}, false);
 		this.audio.addEventListener("timeupdate", (event)=>{this.audioProgress(event)}, false);
 		this.audio.addEventListener("durationchange", (event)=>{this.durationChange(event)}, false);
@@ -147,7 +148,8 @@ class AudioState
 		}
 	}
 
-	switchMute(){
+	switchMute()
+	{
 		this.audio.muted = !this.audio.muted;
 		this.muted = this.audio.muted;
 	}

@@ -1,18 +1,16 @@
 .horizontal-player
 {
-	--player-play-btn-size: 40px;
-    --player-next-btn-size: calc(var(--player-play-btn-size)*1);
-    --player-side-btns-size: calc(var(--player-play-btn-size)*0.625);
-    --player-side-btns-margin: calc(var(--player-side-btns-size)/4);
-    --player-volume-icon-size: calc(var(--player-play-btn-size)*0.5);
+    --player-name-font-size: 16px;
+    --player-duration-font-size: calc(var(--player-name-font-size)*0.67);
+    --player-artist-font-size: calc(var(--player-name-font-size));
+    --player-bar-tip-font-size: calc(var(--player-name-font-size)*0.8);
 
-    --player-image-size: calc(var(--player-play-btn-size)*4);
+    --player-play-btn-size: calc(var(--player-name-font-size)*2.5);
+    --player-next-btn-size: calc(var(--player-play-btn-size)*0.875);
+    --player-side-btns-size: calc(var(--player-play-btn-size)*0.55);
+
+    --player-image-size: calc(var(--player-name-font-size)*3.5);
     --player-indent-size: calc(var(--player-play-btn-size)*0.4);
-
-    --player-base-font-size: calc(var(--player-play-btn-size)*0.4);
-    --player-name-font-size: calc(var(--player-base-font-size)*1.5);
-    --player-artist-font-size: calc(var(--player-base-font-size)*1);
-    --player-bar-tip-font-size: calc(var(--player-base-font-size)*0.875);
 
     --player-background-color: ;
 }
@@ -20,9 +18,150 @@
 .horizontal-player
 {
 	width: 100%;
+    background-color: var(--player-background-color);
+    color: white;
 }
 
 .horizontal-player svg
 {
 	display: block;
+}
+
+.horizontal-player .duration-bar
+{
+    width: 100%;
+    height: 3px;
+    font-size: var(--player-bar-tip-font-size);
+}
+
+.horizontal-player .player-body
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2px;
+    padding: var(--player-indent-size);
+}
+
+.horizontal-player .audio-info
+{
+    display: inline-flex;
+    align-items: center;
+}
+
+.horizontal-player .audio-image
+{
+    display: block;
+    width: var(--player-image-size);
+    height: var(--player-image-size);
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    margin-right: var(--player-indent-size);
+}
+
+.horizontal-player .audio-image img
+{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.horizontal-player .audio-title
+{
+
+}
+
+.horizontal-player .audio-name
+{
+    font-size: var(--player-name-font-size);
+    font-weight: bold;
+}
+
+.horizontal-player .audio-artist
+{
+    font-size: var(--player-artist-font-size);
+    text-decoration-line: underline;
+    color: grey;
+}
+
+.horizontal-player .player-main-controls
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: calc(var(--player-side-btns-size) + var(--player-indent-size));
+}
+
+.horizontal-player .play-btn
+{
+    height: var(--player-play-btn-size);
+    width: var(--player-play-btn-size);
+    margin: 0 calc(var(--player-indent-size)*1.5);
+}
+
+.horizontal-player .next-btn
+{
+    height: var(--player-next-btn-size);
+    width: var(--player-next-btn-size);
+}
+
+.horizontal-player .next-btn.reversed
+{
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
+
+.horizontal-player .playback-mode-btn-wrapper
+{
+    height: var(--player-side-btns-size);
+    width: var(--player-side-btns-size);
+    margin-left: var(--player-indent-size);
+}
+
+.horizontal-player .player-secondary-controls
+{
+    display: inline-flex;
+    justify-self: end;
+    align-items: center;
+}
+
+.horizontal-player .volume-controls
+{
+    display: inline-flex;
+    align-items: center;
+}
+
+.horizontal-player .volume-bar
+{
+    width: 100px;
+    height: 3px;
+    font-size: var(--player-bar-tip-font-size);
+    display: none;
+}
+
+.horizontal-player .volume-controls:hover .volume-bar
+{
+    display: block;
+}
+
+.horizontal-player .volume-icon
+{
+    height: var(--player-side-btns-size);
+    width: var(--player-side-btns-size);
+    margin-left: calc(var(--player-indent-size)/2);
+}
+
+.horizontal-player .options-btn
+{
+    height: var(--player-side-btns-size);
+    width: var(--player-side-btns-size);
+    margin-left: var(--player-indent-size);
+}
+
+.horizontal-player .audio-current-time
+{
+    margin-left: var(--player-indent-size);
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
 }

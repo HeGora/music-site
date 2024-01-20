@@ -22,6 +22,8 @@
 	height: 100%;
 	width: 100%;
 	background-color: var(--playlist-background-color);
+	display: flex;
+	flex-direction: column;
 }
 
 .playlist .playlist-header
@@ -71,7 +73,10 @@
 
 .playlist .playlist-body
 {
-	
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
 }
 
 .playlist .audiolist-header
@@ -99,4 +104,6 @@
 {
 	font-size: var(--playlist-audiolist-font);
 	background-color: var(--playlist-audiolist-background-color);
+	flex: 1;
+	min-height: 0;
 }

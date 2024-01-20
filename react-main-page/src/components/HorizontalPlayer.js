@@ -6,6 +6,7 @@ import VolumeBtn from "components/VolumeBtn.js";
 import SliderBar from "components/SliderBar.js";
 import audioState from "stores/AudioState.js";
 import playerState from "stores/PlayerState.js";
+import colorThemeState from "stores/ColorThemeSTate.js";
 import {timeFormatter, percentFormatter} from "helpers/PlayerHelperFunctions.js";
 import "css/HorizontalPlayer.css";
 
@@ -47,8 +48,8 @@ function HorizontalPlayer(props)
 	}
 
 	const styleVariables = {
-		"--player-background-color": props.colorTheme.playerColor,
-		"--player-play-btn-size": props.playBtnSize,
+		"--player-background-color": colorThemeState.getBlankBackgroundColor,
+		"--player-name-font-size": props.nameFontSize,
 	}
 
 	return(
@@ -75,7 +76,10 @@ function HorizontalPlayer(props)
 						<PauseBtnIcon/> 
 					}
 					</div>
-					<div className = "next-btn" onClick = {nextBtnClick}><NextBtnIcon/></div>	
+					<div className = "next-btn" onClick = {nextBtnClick}><NextBtnIcon/></div>
+					<div className = "playback-mode-btn-wrapper">
+							<PlaybackModBtn/>
+					</div>	
 				</div>
 				<div className = "player-secondary-controls">
 					<div className = "volume-controls">
@@ -89,9 +93,6 @@ function HorizontalPlayer(props)
 						<div className = "volume-options-btn"></div>
 					</div>
 					<div className = "volume-options"></div>
-					<div className = "playback-mode-btn-wrapper">
-							<PlaybackModBtn/>
-					</div>
 					<div className = "options-btn"><OptionsIcon/></div>
 					<div className = "audio-current-time">{createCurrentTime()}</div>
 				</div>

@@ -1,4 +1,4 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import {Link} from "react-router-dom"
 import {observer} from "mobx-react";
 import colorThemeState from "stores/ColorThemeState.js";
@@ -50,7 +50,10 @@ function OpenedLeftMenu(props)
 				</Link>
 			</div>
 			<div className = "bottom-area">
-          		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} playBtnSize = "40px"/>
+				{
+          		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
+          		nameFontSize = "var(--left-menu-font)"/>
+				}
 			</div>
 		</div>
 	)

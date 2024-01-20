@@ -1,5 +1,10 @@
 .vertical-player{
-    --player-play-btn-size: 40px;
+    --player-name-font-size: 24px;
+    --player-duration-font-size: calc(var(--player-name-font-size)*0.67);
+    --player-artist-font-size: calc(var(--player-name-font-size)*0.67);
+    --player-bar-tip-font-size: calc(var(--player-name-font-size)*0.55);
+
+    --player-play-btn-size: calc(var(--player-name-font-size)*1.66);
     --player-next-btn-size: calc(var(--player-play-btn-size)*0.875);
     --player-side-btns-size: calc(var(--player-play-btn-size)*0.625);
     --player-side-btns-margin: calc(var(--player-side-btns-size)/4);
@@ -7,11 +12,6 @@
 
     --player-image-size: calc(var(--player-play-btn-size)*4);
     --player-indent-size: calc(var(--player-play-btn-size)*0.4);
-
-    --player-base-font-size: calc(var(--player-play-btn-size)*0.4);
-    --player-name-font-size: calc(var(--player-base-font-size)*1.5);
-    --player-artist-font-size: calc(var(--player-base-font-size)*1);
-    --player-bar-tip-font-size: calc(var(--player-base-font-size)*0.875);
 
     --player-background-color: ;
 }
@@ -22,9 +22,10 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 3fr 1fr 0.8fr var(--player-volume-icon-size) 2.5fr;
+    grid-template-rows: 3fr 1fr 0.8fr var(--player-volume-icon-size) 2fr;
     align-items: center;
     grid-gap: var(--player-indent-size);
+    padding-bottom: calc(var(--player-volume-icon-size));
 }
 
 .vertical-player svg

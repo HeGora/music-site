@@ -17,7 +17,6 @@ class AudioTag extends React.Component
 		this.state = {
 			isMouseIn: false,
 		};
-		console.log(this.props.audioIndex);
 	}
 
 	audioMouseEnter(event)

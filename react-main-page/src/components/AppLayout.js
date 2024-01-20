@@ -5,6 +5,7 @@ import {observer} from "mobx-react";
 import colorThemeState from "stores/ColorThemeState.js";
 import OpenedLeftMenu from "components/OpenedLeftMenu.js";
 import ClosedLeftMenu from "components/ClosedLeftMenu.js";
+import HorizontalPlayer from "components/HorizontalPlayer.js";
 import "css/AppLayout.css";
 
 import {ReactComponent as BackArrowIcon} from "material/icons/back_arrow_btn_icon.svg";
@@ -12,7 +13,7 @@ import {ReactComponent as ClosedMenuIcon} from "material/icons/three_line_menu_i
 
 function AppLayout() {
 
-  const [isMenuOpened, setMenuOpened] = useState(false);
+  const [isMenuOpened, setMenuOpened] = useState(true);
 
   const leftMenuSwitchClick = (event)=>{
     setMenuOpened(!isMenuOpened);
@@ -63,6 +64,9 @@ function AppLayout() {
         <div className = "router-area">
           <Outlet/>
         </div>
+      </div>
+      <div className = "horizontal-player-wrapper">
+        <HorizontalPlayer nameFontSize = "16px"/>
       </div>
     </div>
   );

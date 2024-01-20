@@ -48,7 +48,7 @@ function VerticalPlayer(props)
 
 	const styleVariables = {
 		"--player-background-color": props.colorTheme.playerColor,
-		"--player-play-btn-size": props.playBtnSize,
+		"--player-name-font-size": props.nameFontSize,
 	}
 
 	return(
