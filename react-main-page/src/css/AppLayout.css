@@ -24,6 +24,8 @@
   height: 100%;
   width: 100%;
   background-color: var(--app-blank-background-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .app-area-wrapper svg
@@ -56,6 +58,7 @@
 
 .app-header
 {
+  flex: 0 0 var(--app-header-height);
   height: var(--app-header-height);
   width: 100%;
   background-color: var(--app-header-color);
@@ -63,9 +66,10 @@
 
 .main-area
 {
+  flex: 1 1;
+  min-height: 0;
   display: flex;
   width: 100%;
-  height: calc(100% - var(--app-header-height));
 }
 
 .left-menu-area
@@ -85,8 +89,6 @@
 
 .horizontal-player-wrapper
 {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  flex: 0 0 auto;
   width: 100%;
 }

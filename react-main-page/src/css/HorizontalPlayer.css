@@ -39,7 +39,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2px;
-    padding: var(--player-indent-size);
+    padding: calc(var(--player-indent-size)*0.7);
 }
 
 .horizontal-player .audio-info

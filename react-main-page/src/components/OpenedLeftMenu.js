@@ -9,12 +9,26 @@ import "css/OpenedLeftMenu.css";
 import {ReactComponent as HomeIcon} from "material/icons/home_icon.svg";
 import {ReactComponent as MusicLybraryIcon} from "material/icons/music_lybrary_icon.svg";
 import {ReactComponent as SearchIcon} from "material/icons/search_icon.svg";
+import {ReactComponent as ArrowIcon} from "material/icons/arrow_icon.svg";
 
 function OpenedLeftMenu(props)
 {
+	const [isVerticalPlayerOpened, setVerticalPlayerOpened] = useState(props.isVerticalPlayerOpened);
+
+	useEffect(()=>{
+		props.handleVerticalPlayerSwitch(isVerticalPlayerOpened);
+	}, [isVerticalPlayerOpened]);
+
+	const playerSwitchClick = (event)=>{
+		setVerticalPlayerOpened(!isVerticalPlayerOpened);
+		//console.log(isVerticalPlayerOpened);
+	}
+
 	const styleVariables = {
 		"--left-menu-background-color": colorThemeState.getPrimaryBackgroundColor,
+		"--left-menu-secondary-color": colorThemeState.getSecondaryBackgroundColor,
 		"--left-menu-text-color": colorThemeState.getPrimaryTextColor,
+		"--left-menu-indent-color": colorThemeState.getBlankBackgroundColor,
 	}
 
 	const verticalPlayerColorTheme = {
@@ -50,13 +64,21 @@ function OpenedLeftMenu(props)
 				</Link>
 			</div>
 			<div className = "bottom-area">
-				{
-          		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
-          		nameFontSize = "var(--left-menu-font)"/>
+				{ 
+					isVerticalPlayerOpened &&
+					<div className = "player-wrapper">
+        		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
+        		nameFontSize = "var(--left-menu-font)"/>
+        	</div>
 				}
+				<div className = "player-switch" onClick = {playerSwitchClick}>
+					<div className = {isVerticalPlayerOpened ? "arrow-icon" : "arrow-icon reversed"}> 
+						<ArrowIcon/>
+					</div>
+				</div>
 			</div>
 		</div>
-	)
+	);
 }
 
 export default observer(OpenedLeftMenu);

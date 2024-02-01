@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Outlet, Link} from "react-router-dom";
 import {observer} from "mobx-react";
 import colorThemeState from "stores/ColorThemeState.js";
@@ -11,9 +11,20 @@ import "css/AppLayout.css";
 import {ReactComponent as BackArrowIcon} from "material/icons/back_arrow_btn_icon.svg";
 import {ReactComponent as ClosedMenuIcon} from "material/icons/three_line_menu_icon.svg";
 
-function AppLayout() {
+function AppLayout() 
+{
 
   const [isMenuOpened, setMenuOpened] = useState(true);
+  const [isHorizontalPlayerOpened, setHorizontalPlayerOpened] = useState(true);
+
+  const isHorizontalPlayerRendered = ()=>{
+    return !isMenuOpened || isHorizontalPlayerOpened;
+  }
+
+  const handleVerticalPlayerSwitch = (isVerticalPlayerOpened)=>{
+    setHorizontalPlayerOpened(!isVerticalPlayerOpened);
+    console.log(isHorizontalPlayerRendered());
+  }
 
   const leftMenuSwitchClick = (event)=>{
     setMenuOpened(!isMenuOpened);
@@ -56,7 +67,8 @@ function AppLayout() {
         <div className = "left-menu-area">
           { 
             isMenuOpened ?
-              <OpenedLeftMenu/>
+              <OpenedLeftMenu handleVerticalPlayerSwitch = {handleVerticalPlayerSwitch}
+                isVerticalPlayerOpened = {!isHorizontalPlayerOpened}/>
               :
               <ClosedLeftMenu/>
           }
@@ -65,9 +77,12 @@ function AppLayout() {
           <Outlet/>
         </div>
       </div>
-      <div className = "horizontal-player-wrapper">
-        <HorizontalPlayer nameFontSize = "16px"/>
-      </div>
+      {
+        isHorizontalPlayerRendered() &&
+          <div className = "horizontal-player-wrapper">
+            <HorizontalPlayer nameFontSize = "16px"/>
+          </div>
+      }
     </div>
   );
 }
