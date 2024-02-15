@@ -1,0 +1,37 @@
+.nav-bar
+{
+	--nav-bar-font: 11px;
+	--nav-bar-padding: calc(var(--left-menu-font)*0.5);
+	--nav-bar-background-color: ;
+	--nav-bar-text-color: ;
+}
+
+.nav-bar
+{
+	height: 100%;
+	background-color: var(--nav-bar-background-color);
+	padding: var(--nav-bar-padding);
+	display: flex;
+	flex-direction: column;
+}
+
+.nav-bar a:link
+{
+	text-decoration: none;
+}
+
+.nav-bar a:visited
+{
+	text-decoration: none;
+}
+
+.nav-bar svg
+{
+	display: block;
+}
+
+.nav-bar .link-inner-wrapper
+{
+	font-size: var(--nav-bar-font);
+	color: var(--nav-bar-text-color);
+}

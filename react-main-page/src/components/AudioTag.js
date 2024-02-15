@@ -19,6 +19,13 @@ class AudioTag extends React.Component
 		};
 	}
 
+	styleVariables = {
+		"--audio-tag-name-font": this.props.nameFontSize,
+		"--audio-tag-background-color": this.props.colorTheme.backgroundColor,
+		"--audio-tag-selected-color": this.props.colorTheme.selectedColor,
+		"--audio-tag-text-color": this.props.colorTheme.textColor
+	}
+
 	audioMouseEnter(event)
 	{
 		this.setState({isMouseIn: true});
@@ -31,7 +38,7 @@ class AudioTag extends React.Component
 
 	playBtnClick(event)
 	{
-		this.props.checkAudioListChange();
+		this.props.handlePlayBtnClick();
 		if(this.props.audioInfo.audioSrc == audioState.getSrc)
 		{
 			audioState.switch();
@@ -60,7 +67,8 @@ class AudioTag extends React.Component
 		return(
 			<div className = {this.state.isMouseIn ? "audio-tag selected" : "audio-tag"}
 			onMouseEnter = {(event)=>{this.audioMouseEnter(event)}} 
-			onMouseLeave = {(event)=>{this.audioMouseLeave(event)}}>
+			onMouseLeave = {(event)=>{this.audioMouseLeave(event)}}
+			style = {this.styleVariables}>
 				<div className = "play-btn-image-wrapper">			
 					<div className = "audio-image">
 						<img src = {this.props.audioInfo.imageSrc} /> 
@@ -88,7 +96,7 @@ class AudioTag extends React.Component
 					this.state.isMouseIn ?
 					<div className = "more-btn"><MoreBtnIcon/></div>
 					:
-					<div className = "duration">{this.props.audioInfo.audioDuration}</div>
+					<div className = "duration">{this.props.audioInfo.duration}</div>
 				}
 				</div>
 			</div>

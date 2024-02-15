@@ -10,6 +10,14 @@ export const VOLUME_LVLS = {
   LOW: 0,
 }
 
+export const SCREEN_WIDTH_TYPES = 
+{
+  DESKTOP: 1024,
+  MOBILE: 600,
+}
+
+
+
 export const DEMO_PAGE_DATA = {
   audios: [
     {
@@ -19,7 +27,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Like a Machine',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '3:43'
     },
 
     {
@@ -29,7 +38,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Untraveled Road',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '3:55'
     },
 
     {
@@ -39,7 +49,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Born This Way',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '3:25'
     },
 
     {
@@ -49,7 +60,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Set Me On Fire',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '3:48'
     },
 
     {
@@ -59,7 +71,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Give It to Me',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '3:39'
     },
 
     {
@@ -69,7 +82,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'I See Red',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '4:10'
     },
 
     {
@@ -79,7 +93,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Light Up',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '2:58'
     },
 
     {
@@ -89,7 +104,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'In My Room',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '4:39'
     },
 
     {
@@ -99,7 +115,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Oxygen',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '3:51'
     },
 
     {
@@ -109,7 +126,8 @@ export const DEMO_PAGE_DATA = {
       playlistId: 2,
       name:'Glow',
       artist:'Thousand Foot Krutch',
-      album:'Oxygen: Inhale'
+      album:'Oxygen: Inhale',
+      duration: '3:20'
     }
 
   ],

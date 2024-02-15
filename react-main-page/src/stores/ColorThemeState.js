@@ -3,15 +3,15 @@ import {makeAutoObservable} from "mobx";
 class ColorThemeState
 {
 	primaryBackgroundColor = "#303030";
-    secondaryBackgroundColor = "#2D2D2D";
-    headerColor = "#404040";
-    blankBackgroundColor = "#1E1E1E";   
-    primaryIconColor = "#ffffff";
-    secondaryIconColor = "#000000";
-    primaryTextColor = "#ffffff";
-    secondaryTextColor = "#808080";
-    lightSelectColor = "#505050";
-    darkSelectColor = "#2A2A2A";
+  secondaryBackgroundColor = "#2D2D2D";
+  headerColor = "#404040";
+  blankBackgroundColor = "#1E1E1E";   
+  primaryIconColor = "#ffffff";
+  secondaryIconColor = "#000000";
+  primaryTextColor = "#ffffff";
+  secondaryTextColor = "#808080";
+  lightSelectColor = "#505050";
+  darkSelectColor = "#2A2A2A";
 
 	constructor()
 	{

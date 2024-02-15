@@ -13,15 +13,9 @@ import {ReactComponent as ArrowIcon} from "material/icons/arrow_icon.svg";
 
 function OpenedLeftMenu(props)
 {
-	const [isVerticalPlayerOpened, setVerticalPlayerOpened] = useState(props.isVerticalPlayerOpened);
-
-	useEffect(()=>{
-		props.handleVerticalPlayerSwitch(isVerticalPlayerOpened);
-	}, [isVerticalPlayerOpened]);
 
 	const playerSwitchClick = (event)=>{
-		setVerticalPlayerOpened(!isVerticalPlayerOpened);
-		//console.log(isVerticalPlayerOpened);
+		props.handleVerticalPlayerSwitch(!props.isVerticalPlayerOpened)
 	}
 
 	const styleVariables = {
@@ -65,14 +59,14 @@ function OpenedLeftMenu(props)
 			</div>
 			<div className = "bottom-area">
 				{ 
-					isVerticalPlayerOpened &&
+					props.isVerticalPlayerOpened &&
 					<div className = "player-wrapper">
         		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
         		nameFontSize = "var(--left-menu-font)"/>
         	</div>
 				}
 				<div className = "player-switch" onClick = {playerSwitchClick}>
-					<div className = {isVerticalPlayerOpened ? "arrow-icon" : "arrow-icon reversed"}> 
+					<div className = {props.isVerticalPlayerOpened ? "arrow-icon reversed" : "arrow-icon"}> 
 						<ArrowIcon/>
 					</div>
 				</div>

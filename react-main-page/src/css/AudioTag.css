@@ -1,36 +1,40 @@
 .audio-tag
 {
-	--audio-tag-name-font: 1em;
+	--audio-tag-name-font: 20px; 
 	--audio-tag-album-font: calc(var(--audio-tag-name-font)*0.875);
 	--audio-tag-artist-font: calc(var(--audio-tag-name-font)*0.875);
-	--audio-tag-grid-gap: calc(var(--audio-tag-name-font)*0.5);
+	--audio-tag-indent-size: calc(var(--audio-tag-name-font)*0.5);
 
 	--audio-tag-image-size: calc(var(--audio-tag-name-font)*2);
 	--audio-tag-play-icon-size: var(--audio-tag-name-font);
-	--audio-tag-image-margin: calc(var(--audio-tag-image-size)/7);
-	--audio-tag-more-icon-size: calc(var(--audio-tag-name-font)*2);
+	--audio-tag-more-icon-size: calc(var(--audio-tag-name-font)*1.2);
+
+	--audio-tag-selected-color: ;
+	--audio-tag-background-color: ;
+	--audio-tag-text-color: ;
 }
 
 .audio-tag
 {
 	display: grid;
-	grid-template-columns: auto 1fr 1fr 1fr var(--audio-tag-more-icon-size);
-	grid-gap: var(--audio-tag-grid-gap);
+	grid-template-columns: auto 1fr 1fr 1fr auto;
+	grid-gap: var(--audio-tag-indent-size);
+	padding: calc(var(--audio-tag-indent-size)/2) var(--audio-tag-indent-size);
 	align-items: center;
-	color: #ffffff;
 	user-drag: none;
 	user-select: none;
+	background-color: var(--audio-tag-background-color);
+	color: var(--audio-tag-text-color);
 }
 
 .audio-tag.selected
 {
-	background-color: #202020;
+	background-color: var(--audio-tag-selected-color);
 }
 
 .audio-tag .play-btn-image-wrapper
 {
 	position: relative;
-	margin: var(--audio-tag-image-margin);
 }
 
 .audio-tag .play-btn
@@ -99,5 +103,4 @@
 {
 	width: var(--audio-tag-more-icon-size);
 	height: var(--audio-tag-more-icon-size);
-	fill: white;
 }

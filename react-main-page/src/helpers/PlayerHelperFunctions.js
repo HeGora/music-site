@@ -19,3 +19,11 @@ export function percentFormatter(value)
 {
 	return Math.round(value * 100) + '%';
 }
+
+export function calculateUnits(value, calcFunction)
+{
+	let floatRegExp = /^\d+(\.\d+)?/;
+	let numberMatch = value.match(floatRegExp);
+	let units = value.slice(numberMatch[0].length);
+	return calcFunction(parseFloat(numberMatch)) + units;
+}

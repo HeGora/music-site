@@ -4,8 +4,12 @@ import {Outlet, Link} from "react-router-dom";
 import {observer} from "mobx-react";
 import colorThemeState from "stores/ColorThemeState.js";
 import OpenedLeftMenu from "components/OpenedLeftMenu.js";
-import ClosedLeftMenu from "components/ClosedLeftMenu.js";
+import NavBar from "components/NavBar.js";
 import HorizontalPlayer from "components/HorizontalPlayer.js";
+
+import useScreenSize from "helpers/hooks/useScreenSize.js";
+import {SCREEN_WIDTH_TYPES} from "helpers/PlayerConstants.js"
+
 import "css/AppLayout.css";
 
 import {ReactComponent as BackArrowIcon} from "material/icons/back_arrow_btn_icon.svg";
@@ -15,15 +19,32 @@ function AppLayout()
 {
 
   const [isMenuOpened, setMenuOpened] = useState(true);
-  const [isHorizontalPlayerOpened, setHorizontalPlayerOpened] = useState(true);
+  const [isHorizontalPlayerOpened, setHorizontalPlayerOpened] = useState(false);
+  const screenSize = useScreenSize();
 
-  const isHorizontalPlayerRendered = ()=>{
-    return !isMenuOpened || isHorizontalPlayerOpened;
+  const isHorizontalPlayerRender = ()=>{
+    return !isOpenedMenuRender() || isHorizontalPlayerOpened;
+  }
+
+  const isOpenedMenuRender = ()=>{
+    return isMenuOpened && isDesktopWidthSize();
+  }
+
+  const isDesktopWidthSize = ()=>{
+    return screenSize.width >= SCREEN_WIDTH_TYPES.DESKTOP
+  }
+
+  const isTabletWidthSize = ()=>{
+    return screenSize.width > SCREEN_WIDTH_TYPES.MOBILE
+    && screenSize.width < SCREEN_WIDTH_TYPES.DESKTOP;
+  }
+
+  const isMobileWidthSize = ()=>{
+    return screenSize.width <= SCREEN_WIDTH_TYPES.MOBILE;
   }
 
   const handleVerticalPlayerSwitch = (isVerticalPlayerOpened)=>{
     setHorizontalPlayerOpened(!isVerticalPlayerOpened);
-    console.log(isHorizontalPlayerRendered());
   }
 
   const leftMenuSwitchClick = (event)=>{
@@ -45,40 +66,46 @@ function AppLayout()
     "--app-light-select-color": colorThemeState.getLightSelectColor,
     "--app-dark-select-color": colorThemeState.getDarkSelectColor,
 
-    "--app-left-menu-width": (isMenuOpened ? "var(--app-left-menu-opened-width)" : "var(--app-left-menu-closed-width)"),
+    "--app-left-menu-width": (isOpenedMenuRender() ? "var(--app-left-menu-opened-width)" : "var(--app-left-menu-closed-width)"),
   }
 
   return (
     <div className = "app-area-wrapper" style = {appColorTheme}>
-      <div className = "left-menu-switch-wrapper">
-        <div className = "left-menu-switch" onClick = {leftMenuSwitchClick}>
-          <div className = "arrow-icon-wrapper">
-            { 
-              isMenuOpened ?
-                <BackArrowIcon/>
-                :
-                <ClosedMenuIcon/>
-            }
+      {
+        isDesktopWidthSize() &&
+          <div className = "left-menu-switch-wrapper">
+            <div className = "left-menu-switch" onClick = {leftMenuSwitchClick}>
+              <div className = "arrow-icon-wrapper">
+                { 
+                  isMenuOpened ?
+                    <BackArrowIcon/>
+                    :
+                    <ClosedMenuIcon/>
+                }
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+      }
       <div className = "app-header"></div>
       <div className = "main-area">
-        <div className = "left-menu-area">
-          { 
-            isMenuOpened ?
-              <OpenedLeftMenu handleVerticalPlayerSwitch = {handleVerticalPlayerSwitch}
-                isVerticalPlayerOpened = {!isHorizontalPlayerOpened}/>
-              :
-              <ClosedLeftMenu/>
-          }
-        </div>
+        {
+        !isMobileWidthSize() &&
+          <div className = "left-menu-area">
+            { 
+              isOpenedMenuRender() ?
+                <OpenedLeftMenu handleVerticalPlayerSwitch = {handleVerticalPlayerSwitch}
+                  isVerticalPlayerOpened = {!isHorizontalPlayerOpened}/>
+                :
+                <NavBar/>
+            }
+          </div>
+        }
         <div className = "router-area">
           <Outlet/>
         </div>
       </div>
       {
-        isHorizontalPlayerRendered() &&
+        isHorizontalPlayerRender() &&
           <div className = "horizontal-player-wrapper">
             <HorizontalPlayer nameFontSize = "16px"/>
           </div>

@@ -1,9 +1,8 @@
 import React from "react";
 import {observer} from "mobx-react";
 import Audiolist from "components/Audiolist.js";
+import {calculateUnits} from 'helpers/PlayerHelperFunctions.js';
 import "css/Playlist.css";
-
-import {ReactComponent as SortIcon} from "material/icons/buttons/sort_btn_icon.svg";
 
 class Playlist extends React.Component
 {
@@ -11,15 +10,25 @@ class Playlist extends React.Component
 		super(props);
 	}
 
-	colors = {
-		"--playlist-audiolist-background-color": this.props.colorTheme.audiolistColor,
-		"--playlist-background-color": this.props.colorTheme.playlistColor,
+	styleVariables = {
+		"--playlist-name-font": this.props.nameFontSize,
+		"--playlist-background-color": this.props.colorTheme.playlistBackgroundColor,
+		"--playlist-text-color": this.props.colorTheme.textColor,
+		"--playlist-artist-text-color": this.props.colorTheme.artistTextColor
 	}
+
+	audiolistColorTheme = {
+		backgroundColor: this.props.colorTheme.audiolistBackgroundColor,
+		audioSelectedColor: this.props.colorTheme.audioSelectedColor,
+		textColor: this.props.colorTheme.textColor
+	}
+
+	audioListFontSize = calculateUnits(this.props.nameFontSize, (value) => value*0.625);
 
 	render()
 	{
 		return(
-			<div className = "playlist" style = {this.colors}>
+			<div className = "playlist" style = {this.styleVariables}>
 				<div className = "playlist-header">
 					<div className = "header-image">
 						<img src = {this.props.playlistInfo.imageSrc} />
@@ -38,16 +47,9 @@ class Playlist extends React.Component
 					</div>
 				</div>
 				<div className = "playlist-body">
-					<div className = "audiolist-header">
-						<div className = "th-cover"></div>
-						<div className = "th-name">Название</div>
-						<div className = "th-artist">Исполнитель</div>
-						<div className = "th-album">Альбом</div>
-						<div className = "th-sort"><SortIcon fill = "white" /></div>
-					</div>
-					<div className = "audiolist-wrapper">
-						<Audiolist audios = {this.props.audios} id = {this.props.id}/>
-					</div>
+					<Audiolist audios = {this.props.audios} id = {this.props.id}
+					audioNameFontSize = {this.audioListFontSize} 
+					colorTheme = {this.audiolistColorTheme}/>
 				</div>
 			</div>
 		)

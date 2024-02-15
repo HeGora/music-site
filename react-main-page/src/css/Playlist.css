@@ -7,14 +7,9 @@
 	--playlist-header-image-size: calc(var(--playlist-name-font)*6.5);
 	--playlist-header-margins: calc(var(--playlist-name-font)*0.5);
 
-	--playlist-audiolist-font: calc(var(--playlist-name-font)*0.625);
-	--playlist-audiolist-header-font: calc(var(--playlist-audiolist-font)*0.8);
-	--playlist-body-first-row: calc(var(--playlist-audiolist-font)*2);
-	--playlist-sort-icon-size: calc(var(--playlist-audiolist-header-font)*2);
-	--playlist-body-gap: calc(var(--playlist-audiolist-font)*0.5);
-
-	--playlist-audiolist-background-color: ;
 	--playlist-background-color: ;
+	--playlist-text-color: ;
+	--playlist-artist-text-color: ;
 }
 
 .playlist
@@ -29,14 +24,13 @@
 .playlist .playlist-header
 {
 	display: inline-flex;
-	margin-top: var(--playlist-header-margins);
-	margin-left: var(--playlist-header-margins);
+	margin: var(--playlist-header-margins);
 }
 
 .playlist .header-image
 {
 	-webkit-user-drag: none;
-    -webkit-user-select: none;
+  -webkit-user-select: none;
 	height: var(--playlist-header-image-size);
 	width: var(--playlist-header-image-size);
 }
@@ -50,7 +44,7 @@
 .playlist .header-info
 {
 	margin-left: var(--playlist-header-margins);
-	color: #ffffff;
+	color: var(--playlist-text-color);
 }
 
 .playlist .playlist-name
@@ -62,7 +56,7 @@
 {
 	font-size: var(--playlist-artist-font);
 	text-decoration-line: underline;
-    color: grey;
+  color: var(--playlist-artist-text-color);
 }
 
 .playlist .num-time
@@ -73,37 +67,6 @@
 
 .playlist .playlist-body
 {
-	flex: 1;
-	min-height: 0;
-	display: flex;
-	flex-direction: column;
-}
-
-.playlist .audiolist-header
-{
-	display: grid;
-	grid-template-columns: auto 1fr 1fr 1fr auto;
-	align-items: center;
-	gap: var(--playlist-body-gap);
-	font-size: ;
-	color: #ffffff;
-}
-
-.playlist .th-cover
-{
-	width: var(--playlist-body-first-row);
-}
-
-.playlist .th-sort
-{
-	width: var(--playlist-sort-icon-size);
-	height: var(--playlist-sort-icon-size);
-}
-
-.playlist .audiolist-wrapper
-{
-	font-size: var(--playlist-audiolist-font);
-	background-color: var(--playlist-audiolist-background-color);
 	flex: 1;
 	min-height: 0;
 }
