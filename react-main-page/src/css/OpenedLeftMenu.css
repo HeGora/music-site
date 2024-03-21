@@ -12,7 +12,7 @@
 {
 	.opened-left-menu .bottom-area
 	{
-		display: none;
+		
 	}
 }
 
@@ -66,13 +66,21 @@
 
 .opened-left-menu .bottom-area
 {
+	border-top-style: solid;
+	border-top-width: 2.5px;
+	border-top-color: var(--left-menu-indent-color);
+}
+
+.opened-left-menu .player-block
+{
+
 }
 
 .opened-left-menu .player-wrapper
 {
-	border-top-style: solid;
-	border-top-width: 2.5px;
-	border-top-color: var(--left-menu-indent-color);
+	border-bottom-style: solid;
+	border-bottom-width: 2.5px;
+	border-bottom-color: var(--left-menu-indent-color);
 }
 
 .opened-left-menu .player-switch
@@ -81,9 +89,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-top-style: solid;
-	border-top-width: 2.5px;
-	border-top-color: var(--left-menu-indent-color);
 	background-color: var(--left-menu-secondary-color);
 	padding: 2.5px 0;
 }

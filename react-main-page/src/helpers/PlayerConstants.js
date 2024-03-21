@@ -16,6 +16,12 @@ export const SCREEN_WIDTH_TYPES =
   MOBILE: 600,
 }
 
+export const SCREEN_HEIGHT_TYPES = 
+{
+  DESKTOP: 900,
+  MOBILE: 768,
+}
+
 
 
 export const DEMO_PAGE_DATA = {

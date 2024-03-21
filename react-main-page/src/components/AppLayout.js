@@ -3,12 +3,10 @@ import {useState, useEffect} from "react";
 import {Outlet, Link} from "react-router-dom";
 import {observer} from "mobx-react";
 import colorThemeState from "stores/ColorThemeState.js";
+import screenSizeState from "stores/ScreenSizeState.js";
 import OpenedLeftMenu from "components/OpenedLeftMenu.js";
 import NavBar from "components/NavBar.js";
 import HorizontalPlayer from "components/HorizontalPlayer.js";
-
-import useScreenSize from "helpers/hooks/useScreenSize.js";
-import {SCREEN_WIDTH_TYPES} from "helpers/PlayerConstants.js"
 
 import "css/AppLayout.css";
 
@@ -20,27 +18,15 @@ function AppLayout()
 
   const [isMenuOpened, setMenuOpened] = useState(true);
   const [isHorizontalPlayerOpened, setHorizontalPlayerOpened] = useState(false);
-  const screenSize = useScreenSize();
 
   const isHorizontalPlayerRender = ()=>{
-    return !isOpenedMenuRender() || isHorizontalPlayerOpened;
+    return !isOpenedMenuRender() 
+      || isHorizontalPlayerOpened 
+      || screenSizeState.isMobileHeightSize;
   }
 
   const isOpenedMenuRender = ()=>{
-    return isMenuOpened && isDesktopWidthSize();
-  }
-
-  const isDesktopWidthSize = ()=>{
-    return screenSize.width >= SCREEN_WIDTH_TYPES.DESKTOP
-  }
-
-  const isTabletWidthSize = ()=>{
-    return screenSize.width > SCREEN_WIDTH_TYPES.MOBILE
-    && screenSize.width < SCREEN_WIDTH_TYPES.DESKTOP;
-  }
-
-  const isMobileWidthSize = ()=>{
-    return screenSize.width <= SCREEN_WIDTH_TYPES.MOBILE;
+    return isMenuOpened && screenSizeState.isDesktopWidthSize;
   }
 
   const handleVerticalPlayerSwitch = (isVerticalPlayerOpened)=>{
@@ -72,7 +58,7 @@ function AppLayout()
   return (
     <div className = "app-area-wrapper" style = {appColorTheme}>
       {
-        isDesktopWidthSize() &&
+        screenSizeState.isDesktopWidthSize &&
           <div className = "left-menu-switch-wrapper">
             <div className = "left-menu-switch" onClick = {leftMenuSwitchClick}>
               <div className = "arrow-icon-wrapper">
@@ -89,7 +75,7 @@ function AppLayout()
       <div className = "app-header"></div>
       <div className = "main-area">
         {
-        !isMobileWidthSize() &&
+        !screenSizeState.isMobileWidthSize &&
           <div className = "left-menu-area">
             { 
               isOpenedMenuRender() ?

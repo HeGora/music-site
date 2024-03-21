@@ -2,9 +2,12 @@ import {useState, useEffect} from "react";
 import {Link} from "react-router-dom"
 import {observer} from "mobx-react";
 import colorThemeState from "stores/ColorThemeState.js";
+import screenSizeState from "stores/ScreenSizeState.js";
 import VerticalPlayer from "components/VerticalPlayer.js";
 import InlineIconLabel from "components/InlineIconLabel.js";
 import "css/OpenedLeftMenu.css";
+
+
 
 import {ReactComponent as HomeIcon} from "material/icons/home_icon.svg";
 import {ReactComponent as MusicLybraryIcon} from "material/icons/music_lybrary_icon.svg";
@@ -58,18 +61,23 @@ function OpenedLeftMenu(props)
 				</Link>
 			</div>
 			<div className = "bottom-area">
-				{ 
-					props.isVerticalPlayerOpened &&
-					<div className = "player-wrapper">
-        		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
-        		nameFontSize = "var(--left-menu-font)"/>
-        	</div>
-				}
-				<div className = "player-switch" onClick = {playerSwitchClick}>
-					<div className = {props.isVerticalPlayerOpened ? "arrow-icon reversed" : "arrow-icon"}> 
-						<ArrowIcon/>
+			{ 
+				!screenSizeState.isMobileHeightSize &&
+					<div className = "player-block">
+						{ 
+							props.isVerticalPlayerOpened &&
+							<div className = "player-wrapper">
+		        		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
+		        		nameFontSize = "var(--left-menu-font)"/>
+		        	</div>
+						}
+						<div className = "player-switch" onClick = {playerSwitchClick}>
+							<div className = {props.isVerticalPlayerOpened ? "arrow-icon reversed" : "arrow-icon"}> 
+								<ArrowIcon/>
+							</div>
+						</div>
 					</div>
-				</div>
+			}
 			</div>
 		</div>
 	);
