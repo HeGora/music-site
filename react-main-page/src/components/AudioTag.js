@@ -2,6 +2,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {makeObservable, action} from "mobx";
 import audioState from 'stores/AudioState.js';
+import screenSizeState from 'stores/ScreenSizeState.js';
 import playerState from 'stores/PlayerState.js';
 import 'css/AudioTag.css';
 
@@ -90,7 +91,10 @@ class AudioTag extends React.Component
 				</div>
 				<div className = "audio-name">{this.props.audioInfo.name}</div>
 				<div className = "audio-artist">{this.props.audioInfo.artist}</div>
-				<div className = "audio-album">{this.props.audioInfo.album}</div>
+				{
+					screenSizeState.isDesktopWidthSize &&
+						<div className = "audio-album">{this.props.audioInfo.album}</div>
+				}
 				<div className = "more-dur">
 				{
 					this.state.isMouseIn ?

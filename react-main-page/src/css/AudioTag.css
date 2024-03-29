@@ -17,8 +17,8 @@
 .audio-tag
 {
 	display: grid;
-	grid-template-columns: auto 1fr 1fr 1fr auto;
-	grid-gap: var(--audio-tag-indent-size);
+	grid-template-columns: [image-start] var(--audio-tag-image-size) repeat(auto-fit, minmax(100px, 1fr)) [options-start] minmax(var(--audio-tag-more-icon-size), auto);
+	grid-gap: calc(var(--audio-tag-indent-size)*1.5);
 	padding: calc(var(--audio-tag-indent-size)/2) var(--audio-tag-indent-size);
 	align-items: center;
 	user-drag: none;
@@ -50,6 +50,7 @@
 
 .audio-tag .play-btn-icon svg
 {
+	grid-column-start: image-start;
 	display: block;
 }
 
@@ -82,20 +83,30 @@
 .audio-tag .audio-name
 {
 	font-size: var(--audio-tag-name-font);
+	overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow: ellipsis;
 }
 
 .audio-tag .audio-artist
 {
 	font-size: var(--audio-tag-album-font);
+	overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow: ellipsis;
 }
 
 .audio-tag .audio-album
 {
 	font-size: var(--audio-tag-artist-font);
+	overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow: ellipsis;
 }
 
 .audio-tag .more-dur
 {
+	grid-column-start: options-start;
 	
 }
 

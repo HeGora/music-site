@@ -47,7 +47,7 @@
 	width: 100%;
 	box-sizing: border-box;
 	display: grid;
-	grid-template-columns: var(--audiolist-header-first-column-size) 1fr 1fr 1fr auto;
+	grid-template-columns: [cover-start] var(--audiolist-header-first-column-size) repeat(auto-fit, minmax(100px, 1fr)) [sort-start] minmax(10px, auto);
 	align-items: center;
 	justify-content: center;
 	grid-gap: var(--audiolist-header-indent-size);
@@ -65,8 +65,14 @@
 	margin-bottom: var(--audiolist-header-indent-size);
 }
 
+.audiolist .th-cover
+{
+	grid-column-start: cover-start;
+}
+
 .audiolist .th-sort
 {
+	grid-column-start: sort-start;
 	width: var(--audiolist-sort-icon-size);
 	height: var(--audiolist-sort-icon-size);
 	justify-self: center;

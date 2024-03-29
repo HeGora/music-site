@@ -22,7 +22,7 @@ function AppLayout()
   const isHorizontalPlayerRender = ()=>{
     return !isOpenedMenuRender() 
       || isHorizontalPlayerOpened 
-      || screenSizeState.isMobileHeightSize;
+      || !screenSizeState.isDesktopHeightSize;
   }
 
   const isOpenedMenuRender = ()=>{
@@ -37,7 +37,7 @@ function AppLayout()
     setMenuOpened(!isMenuOpened);
   }
 
-  const appColorTheme = {
+  const styleVariables = {
     "--app-primary-background-color": colorThemeState.getPrimaryBackgroundColor,
     "--app-secondary-background-color": colorThemeState.getSecondaryBackgroundColor,
     "--app-header-color": colorThemeState.getHeaderColor,
@@ -52,11 +52,13 @@ function AppLayout()
     "--app-light-select-color": colorThemeState.getLightSelectColor,
     "--app-dark-select-color": colorThemeState.getDarkSelectColor,
 
-    "--app-left-menu-width": (isOpenedMenuRender() ? "var(--app-left-menu-opened-width)" : "var(--app-left-menu-closed-width)"),
+    "--app-menu-font": "24px",
+    "--app-left-menu-width": (isOpenedMenuRender() ? 
+      "var(--app-left-menu-opened-width)" : "var(--app-left-menu-closed-width)"),
   }
 
   return (
-    <div className = "app-area-wrapper" style = {appColorTheme}>
+    <div className = "app-area-wrapper" style = {styleVariables}>
       {
         screenSizeState.isDesktopWidthSize &&
           <div className = "left-menu-switch-wrapper">
@@ -79,7 +81,8 @@ function AppLayout()
           <div className = "left-menu-area">
             { 
               isOpenedMenuRender() ?
-                <OpenedLeftMenu handleVerticalPlayerSwitch = {handleVerticalPlayerSwitch}
+                <OpenedLeftMenu fontSize = {styleVariables["--app-menu-font"]}
+                  handleVerticalPlayerSwitch = {handleVerticalPlayerSwitch}
                   isVerticalPlayerOpened = {!isHorizontalPlayerOpened}/>
                 :
                 <NavBar/>

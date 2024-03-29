@@ -1,35 +1,11 @@
 .opened-left-menu
 {
-	--left-menu-font: 20px;
+	--left-menu-font: 24px;
 	--left-menu-padding: var(--left-menu-font);
 	--left-menu-background-color: ;
 	--left-menu-secondary-color: ;
 	--left-menu-text-color: ;
 	--left-menu-indent-color: ;
-}
-
-@media only screen and (max-height: 768px)
-{
-	.opened-left-menu .bottom-area
-	{
-		
-	}
-}
-
-@media only screen and (min-height: 768px)
-{
-	.opened-left-menu
-	{
-		--left-menu-font: 20px;
-	}
-}
-
-@media only screen and (min-height: 900px)
-{
-	.opened-left-menu
-	{
-		--left-menu-font: 24px;
-	}
 }
 
 .opened-left-menu
@@ -61,7 +37,7 @@
 .opened-left-menu .top-area
 {
 	background-color: var(--left-menu-background-color);
-	padding: var(--left-menu-padding);
+	padding: calc(var(--left-menu-padding)/4) var(--left-menu-padding);
 }
 
 .opened-left-menu .bottom-area

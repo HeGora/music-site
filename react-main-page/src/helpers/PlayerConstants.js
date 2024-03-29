@@ -18,7 +18,7 @@ export const SCREEN_WIDTH_TYPES =
 
 export const SCREEN_HEIGHT_TYPES = 
 {
-  DESKTOP: 900,
+  DESKTOP: 864,
   MOBILE: 768,
 }
 

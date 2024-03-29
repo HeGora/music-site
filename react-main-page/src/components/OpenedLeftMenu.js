@@ -26,6 +26,8 @@ function OpenedLeftMenu(props)
 		"--left-menu-secondary-color": colorThemeState.getSecondaryBackgroundColor,
 		"--left-menu-text-color": colorThemeState.getPrimaryTextColor,
 		"--left-menu-indent-color": colorThemeState.getBlankBackgroundColor,
+
+		"--left-menu-font": props.fontSize,
 	}
 
 	const verticalPlayerColorTheme = {
@@ -62,13 +64,13 @@ function OpenedLeftMenu(props)
 			</div>
 			<div className = "bottom-area">
 			{ 
-				!screenSizeState.isMobileHeightSize &&
+				screenSizeState.isDesktopHeightSize &&
 					<div className = "player-block">
 						{ 
 							props.isVerticalPlayerOpened &&
 							<div className = "player-wrapper">
 		        		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
-		        		nameFontSize = "var(--left-menu-font)"/>
+		        		nameFontSize = {styleVariables["--left-menu-font"]}/>
 		        	</div>
 						}
 						<div className = "player-switch" onClick = {playerSwitchClick}>

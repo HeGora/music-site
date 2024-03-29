@@ -2,6 +2,7 @@ import React from "react";
 import {observer} from "mobx-react";
 import AudioTag from "components/AudioTag.js";
 import playerState from "stores/PlayerState.js";
+import screenSizeState from "stores/ScreenSizeState.js";
 import {calculateUnits} from 'helpers/PlayerHelperFunctions.js';
 import 'css/AudioList.css';
 
@@ -58,7 +59,10 @@ class AudioList extends React.Component
 						<div className = "th-cover"></div>
 						<div className = "th-name">Название</div>
 						<div className = "th-artist">Исполнитель</div>
-						<div className = "th-album">Альбом</div>
+						{
+							screenSizeState.isDesktopWidthSize &&
+								<div className = "th-album">Альбом</div>
+						}
 						<div className = "th-sort"><SortIcon fill = "white" /></div>
 					</div>
 					<div className = "header-separator"/> 

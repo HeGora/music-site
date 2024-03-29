@@ -1,8 +1,10 @@
 .app-area-wrapper
 {
-  --app-header-height: 50px;
-  --app-left-menu-closed-width: 80px;
-  --app-left-menu-opened-width: 250px;
+  --app-menu-font: 24px;
+  --app-header-height: calc(var(--app-menu-font)*2);
+  --app-left-menu-closed-width: calc(var(--app-menu-font)*10/3);
+  --app-left-menu-opened-width: calc(var(--app-menu-font)*125/12);
+  --app-arrow-icon-size: var(--app-menu-font);
 
   --app-primary-background-color: ;
   --app-secondary-background-color: ;
@@ -63,8 +65,8 @@
 
 .left-menu-switch .arrow-icon-wrapper
 {
-  height: 24px;
-  width: 24px;
+  height: var(--app-arrow-icon-size);
+  width: var(--app-arrow-icon-size);
 }
 
 .app-header
