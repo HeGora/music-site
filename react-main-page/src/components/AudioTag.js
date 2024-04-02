@@ -76,7 +76,8 @@ class AudioTag extends React.Component
 						{
 							this.isActive() ?
 								<div className = "image-blur"></div>
-							: null
+								: 
+								null
 						}
 					</div>
 					{
@@ -86,7 +87,8 @@ class AudioTag extends React.Component
 									{this.choosePlayBtnIcon()}			
 								</div>
 							</div>
-						: null
+							: 
+							null
 					}
 				</div>
 				<div className = "audio-name">{this.props.audioInfo.name}</div>
@@ -98,9 +100,9 @@ class AudioTag extends React.Component
 				<div className = "more-dur">
 				{
 					this.state.isMouseIn ?
-					<div className = "more-btn"><MoreBtnIcon/></div>
-					:
-					<div className = "duration">{this.props.audioInfo.duration}</div>
+						<div className = "more-btn"><MoreBtnIcon/></div>
+						:
+						<div className = "duration">{this.props.audioInfo.duration}</div>
 				}
 				</div>
 			</div>

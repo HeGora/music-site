@@ -96,7 +96,7 @@ function AppLayout()
       {
         isHorizontalPlayerRender() &&
           <div className = "horizontal-player-wrapper">
-            <HorizontalPlayer nameFontSize = "16px"/>
+            <HorizontalPlayer/>
           </div>
       }
     </div>

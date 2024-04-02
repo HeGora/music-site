@@ -68,10 +68,10 @@ function OpenedLeftMenu(props)
 					<div className = "player-block">
 						{ 
 							props.isVerticalPlayerOpened &&
-							<div className = "player-wrapper">
-		        		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
-		        		nameFontSize = {styleVariables["--left-menu-font"]}/>
-		        	</div>
+								<div className = "player-wrapper">
+			        		<VerticalPlayer colorTheme = {verticalPlayerColorTheme} 
+			        		nameFontSize = {styleVariables["--left-menu-font"]}/>
+			        	</div>
 						}
 						<div className = "player-switch" onClick = {playerSwitchClick}>
 							<div className = {props.isVerticalPlayerOpened ? "arrow-icon reversed" : "arrow-icon"}> 

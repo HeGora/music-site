@@ -1,0 +1,10 @@
+.play-btn
+{
+	height: 100%;
+	width: 100%;
+}
+
+.play-btn svg
+{
+	display: block;
+}

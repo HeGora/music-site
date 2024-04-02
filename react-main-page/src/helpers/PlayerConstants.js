@@ -13,7 +13,7 @@ export const VOLUME_LVLS = {
 export const SCREEN_WIDTH_TYPES = 
 {
   DESKTOP: 1024,
-  MOBILE: 600,
+  MOBILE: 700,
 }
 
 export const SCREEN_HEIGHT_TYPES = 

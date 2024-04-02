@@ -1,7 +1,7 @@
 .horizontal-player
 {
-    --player-name-font-size: 16px;
-    --player-duration-font-size: calc(var(--player-name-font-size)*0.67);
+    --player-name-font-size: 14px;
+    --player-duration-font-size: calc(var(--player-name-font-size));
     --player-artist-font-size: calc(var(--player-name-font-size));
     --player-bar-tip-font-size: calc(var(--player-name-font-size)*0.8);
 
@@ -9,10 +9,39 @@
     --player-next-btn-size: calc(var(--player-play-btn-size)*0.875);
     --player-side-btns-size: calc(var(--player-play-btn-size)*0.55);
 
+    --player-volume-bar-width: 80px;
     --player-image-size: calc(var(--player-name-font-size)*3.5);
     --player-indent-size: calc(var(--player-play-btn-size)*0.4);
 
     --player-background-color: ;
+}
+
+@media only screen and (max-width: 700px)
+{
+    .horizontal-player
+    {
+        --player-play-btn-size: calc(var(--player-name-font-size)*2.5);
+        --player-next-btn-size: calc(var(--player-play-btn-size)*0.875);    
+    }
+}
+
+@media only screen and (min-width: 701px)
+{
+    .horizontal-player .player-main-controls
+    {
+        justify-content: center;
+        position: relative;
+        left: calc(var(--player-side-btns-size) + var(--player-indent-size));
+    }
+}
+
+@media only screen and (min-width: 1024px)
+{
+    .horizontal-player
+    {
+        --player-name-font-size: 16px;
+        --player-volume-bar-width: 100px;
+    }
 }
 
 .horizontal-player
@@ -37,7 +66,7 @@
 .horizontal-player .player-body
 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     grid-gap: 2px;
     padding: calc(var(--player-indent-size)*0.7);
 }
@@ -86,12 +115,9 @@
 {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    left: calc(var(--player-side-btns-size) + var(--player-indent-size));
 }
 
-.horizontal-player .play-btn
+.horizontal-player .play-btn-wrapper
 {
     height: var(--player-play-btn-size);
     width: var(--player-play-btn-size);
@@ -134,8 +160,8 @@
 
 .horizontal-player .volume-bar
 {
-    width: 100px;
     height: 3px;
+    width: var(--player-volume-bar-width);
     font-size: var(--player-bar-tip-font-size);
     display: none;
 }
@@ -161,6 +187,7 @@
 
 .horizontal-player .audio-current-time
 {
+    font-size: var(--player-duration-font-size);
     margin-left: var(--player-indent-size);
     -webkit-user-drag: none;
     -webkit-user-select: none;
