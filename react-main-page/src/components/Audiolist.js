@@ -58,7 +58,10 @@ class AudioList extends React.Component
 					<div className = "header-titles"> 
 						<div className = "th-cover"></div>
 						<div className = "th-name">Название</div>
-						<div className = "th-artist">Исполнитель</div>
+						{
+							!screenSizeState.isMobileWidthSize &&
+								<div className = "th-artist">Исполнитель</div>
+						}
 						{
 							screenSizeState.isDesktopWidthSize &&
 								<div className = "th-album">Альбом</div>

@@ -47,7 +47,7 @@
 	width: 100%;
 	box-sizing: border-box;
 	display: grid;
-	grid-template-columns: [cover-start] var(--audiolist-header-first-column-size) repeat(auto-fit, minmax(100px, 1fr)) [sort-start] minmax(10px, auto);
+	grid-template-columns: [cover-start] var(--audiolist-header-first-column-size) repeat(auto-fit, minmax(50px, 1fr)) [sort-start] minmax(10px, auto);
 	align-items: center;
 	justify-content: center;
 	grid-gap: var(--audiolist-header-indent-size);

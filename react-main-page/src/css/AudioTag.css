@@ -17,7 +17,7 @@
 .audio-tag
 {
 	display: grid;
-	grid-template-columns: [image-start] var(--audio-tag-image-size) repeat(auto-fit, minmax(100px, 1fr)) [options-start] minmax(var(--audio-tag-more-icon-size), auto);
+	grid-template-columns: [image-start] var(--audio-tag-image-size) repeat(auto-fit, minmax(50px, 1fr)) [options-start] minmax(var(--audio-tag-more-icon-size), auto);
 	grid-gap: calc(var(--audio-tag-indent-size)*1.5);
 	padding: calc(var(--audio-tag-indent-size)/2) var(--audio-tag-indent-size);
 	align-items: center;
@@ -80,25 +80,33 @@
 	opacity: 0.4;
 }
 
-.audio-tag .audio-name
+.audio-tag .audio-title
 {
-	font-size: var(--audio-tag-name-font);
 	overflow:hidden; 
   white-space:nowrap; 
   text-overflow: ellipsis;
+}
+
+.audio-tag .audio-name
+{
+	font-size: var(--audio-tag-name-font);
 }
 
 .audio-tag .audio-artist
 {
-	font-size: var(--audio-tag-album-font);
-	overflow:hidden; 
-  white-space:nowrap; 
-  text-overflow: ellipsis;
+	font-size: var(--audio-tag-artist-font);
+}
+
+.audio-tag .audio-title .audio-artist
+{
+	font-size: calc(var(--audio-tag-name-font)*0.8);
+	 text-decoration-line: underline;
+   color: grey;
 }
 
 .audio-tag .audio-album
 {
-	font-size: var(--audio-tag-artist-font);
+	font-size: var(--audio-tag-album-font);
 	overflow:hidden; 
   white-space:nowrap; 
   text-overflow: ellipsis;

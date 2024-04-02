@@ -1,5 +1,6 @@
 import {observer} from "mobx-react";
 import colorThemeState from "stores/ColorThemeState.js";
+import screenSizeState from "stores/ScreenSizeState.js";
 import Playlist from "components/Playlist.js";
 import "css/PlaylistPage.css";
 
@@ -20,7 +21,8 @@ function PlaylistPage(props) {
       <div className = "playlist-wrapper">
         <Playlist audios = {DEMO_PAGE_DATA.audios} 
          playlistInfo = {DEMO_PAGE_DATA.playlistInfo}
-         nameFontSize = "32px" colorTheme = {playlistColorTheme}/>
+         nameFontSize = {screenSizeState.isMobileWidthSize ? "28px" : "32px"}
+         colorTheme = {playlistColorTheme}/>
       </div>
     </div>
   );

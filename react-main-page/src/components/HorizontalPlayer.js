@@ -18,15 +18,11 @@ import {ReactComponent as PlayBtnIcon} from 'material/icons/buttons/play_btn_ico
 import {ReactComponent as PauseBtnIcon} from 'material/icons/buttons/pause_btn_icon.svg';
 import {ReactComponent as MoreBtnIcon} from 'material/icons/buttons/more_btn_icon.svg';
 import {ReactComponent as NextBtnIcon} from "material/icons/buttons/next_btn_icon.svg";
+import {ReactComponent as SolidNextBtnIcon} from "material/icons/buttons/solid_next_btn_icon.svg"; 
 import {ReactComponent as OptionsIcon} from "material/icons/buttons/options_btn_icon.svg";
 
 function HorizontalPlayer(props)
 {
-
-	const playBtnClick = (event)=>{
-		audioState.switch();
-	};
-
 	const nextBtnClick = (event)=>{
 		playerState.playRepeat(1);
 	};
@@ -69,13 +65,17 @@ function HorizontalPlayer(props)
 						<div className = "audio-name">{audioState.getName}</div>
 						<div className = "audio-artist">{audioState.getArtist}</div>
 					</div>
+					{
+						screenSizeState.isMobileWidthSize && 
+							<div className = "more-btn"><MoreBtnIcon/></div>
+					}
 				</div>
 				<div className = "player-main-controls">
 					{
 						!screenSizeState.isMobileWidthSize &&
 							<div className = "next-btn reversed" onClick = {prevBtnClick}><NextBtnIcon/></div>
 					}
-					<div className = "play-btn-wrapper" onClick = {playBtnClick}>
+					<div className = "play-btn-wrapper">
 						{
 							!screenSizeState.isMobileWidthSize ? 
 								<PlayBtn playIcon = {<PlaySquareBtnIcon/>} pauseIcon = {<PauseSquareBtnIcon/>}/>
@@ -83,7 +83,14 @@ function HorizontalPlayer(props)
 								<PlayBtn playIcon = {<PlayBtnIcon/>} pauseIcon = {<PauseBtnIcon/>}/>
 						}
 					</div>
-					<div className = "next-btn" onClick = {nextBtnClick}><NextBtnIcon/></div>
+					<div className = "next-btn" onClick = {nextBtnClick}>
+						{
+							screenSizeState.isMobileWidthSize ? 
+								<SolidNextBtnIcon/>
+								:
+								<NextBtnIcon/>
+						}
+					</div>
 					{
 						!screenSizeState.isMobileWidthSize &&
 							<div className = "playback-mode-btn-wrapper">
