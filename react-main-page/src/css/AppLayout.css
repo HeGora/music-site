@@ -79,15 +79,46 @@
 
 .main-area
 {
+  position: relative;
   flex: 1 1;
   min-height: 0;
   display: flex;
   width: 100%;
 }
 
-.left-menu-area
+.opened-menu-wrapper
 {
-  flex: 0 0 var(--app-left-menu-width);
+  flex: 0 0 var(--app-left-menu-opened-width);
+  height: 100%;
+  background-color: var(--app-primary-background-color);
+  color: var(--app-primary-text-color);
+}
+
+.front-opened-menu-wrapper
+{
+  position: absolute;
+  height: 100%;
+  width: var(--app-left-menu-opened-width);
+  background-color: var(--app-primary-background-color);
+  color: var(--app-primary-text-color);
+  z-index: 20;
+}
+
+.screen-cover
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: black;
+  opacity: 0.3;
+}
+
+.closed-menu-wrapper
+{
+  flex: 0 0 var(--app-left-menu-closed-width);
   height: 100%;
   background-color: var(--app-primary-background-color);
   color: var(--app-primary-text-color);
@@ -102,6 +133,8 @@
 
 .horizontal-player-wrapper
 {
+  positon: relative;
+  z-index: 21;
   flex: 0 0 auto;
   width: 100%;
 }

@@ -85,10 +85,10 @@ function HorizontalPlayer(props)
 					</div>
 					<div className = "next-btn" onClick = {nextBtnClick}>
 						{
-							screenSizeState.isMobileWidthSize ? 
-								<SolidNextBtnIcon/>
-								:
+							!screenSizeState.isMobileWidthSize ? 
 								<NextBtnIcon/>
+								:
+								<SolidNextBtnIcon/>
 						}
 					</div>
 					{

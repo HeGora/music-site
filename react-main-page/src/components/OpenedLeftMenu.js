@@ -64,7 +64,8 @@ function OpenedLeftMenu(props)
 			</div>
 			<div className = "bottom-area">
 			{ 
-				screenSizeState.isDesktopHeightSize &&
+				(screenSizeState.isDesktopHeightSize 
+				&& screenSizeState.isDesktopWidthSize) &&
 					<div className = "player-block">
 						{ 
 							props.isVerticalPlayerOpened &&
